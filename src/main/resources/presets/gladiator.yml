@@ -1,0 +1,28 @@
+display-name: Gladiator
+description: Towering arena walls hide long sandstone passages and a few shortcuts.
+difficulty: HARD
+accent: '#D6A66E'
+path-width: 3
+wall-thickness: 3
+wall-height: 12
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.85
+advanced:
+  branching: 0.25
+  turn-bias: 0.35
+  horizontal-bias: 0.5
+  braid-chance: 0.12
+palette:
+  floor: ['minecraft:smooth_sandstone@5', 'minecraft:cut_sandstone@1']
+  wall: ['minecraft:sandstone@5', 'minecraft:cut_sandstone@3', 'minecraft:chiseled_sandstone@1']
+  ceiling: ['minecraft:smooth_sandstone@1']
+  cap: ['minecraft:red_sandstone@3', 'minecraft:cut_red_sandstone@1']
+decoration:
+  cap-chance: 0.75
+  light-spacing: 4
+  light: minecraft:glowstone
+  entrance-marker: minecraft:iron_block
+  exit-marker: minecraft:gold_block

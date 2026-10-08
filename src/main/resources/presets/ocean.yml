@@ -1,0 +1,28 @@
+display-name: Ocean
+description: Bright spacious halls with several ways forward.
+difficulty: EASY
+accent: "#7DC4E4"
+path-width: 4
+wall-thickness: 1
+wall-height: 5
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.55
+advanced:
+  branching: 0.55
+  turn-bias: 0.6
+  horizontal-bias: 0.5
+  braid-chance: 0.65
+palette:
+  floor: ['minecraft:prismarine_bricks@3', 'minecraft:dark_prismarine@1']
+  wall: ['minecraft:prismarine@3', 'minecraft:prismarine_bricks@3', 'minecraft:dark_prismarine@1']
+  ceiling: ['minecraft:prismarine@3']
+  cap: ['minecraft:dark_prismarine@1']
+decoration:
+  cap-chance: 0.18
+  light-spacing: 3
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

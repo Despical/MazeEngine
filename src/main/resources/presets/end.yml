@@ -1,0 +1,28 @@
+display-name: End
+description: Pale stone and purple walls surround winding routes with hidden loops.
+difficulty: MEDIUM
+accent: '#C4B2E5'
+path-width: 3
+wall-thickness: 1
+wall-height: 7
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.65
+advanced:
+  branching: 0.5
+  turn-bias: 0.7
+  horizontal-bias: 0.5
+  braid-chance: 0.4
+palette:
+  floor: ['minecraft:end_stone@4', 'minecraft:end_stone_bricks@1']
+  wall: ['minecraft:purpur_block@4', 'minecraft:purpur_pillar[axis=y]@1']
+  ceiling: ['minecraft:end_stone_bricks@1']
+  cap: ['minecraft:end_stone_bricks@1']
+decoration:
+  cap-chance: 0.6
+  light-spacing: 3
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:amethyst_block
+  exit-marker: minecraft:gold_block

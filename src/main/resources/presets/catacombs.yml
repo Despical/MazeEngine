@@ -1,0 +1,28 @@
+display-name: Catacombs
+description: Single-file burial tunnels with thick walls, tall ceilings and very few junctions.
+difficulty: HARD
+accent: '#A8B0A2'
+path-width: 1
+wall-thickness: 3
+wall-height: 4
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 1
+advanced:
+  branching: 0.03
+  turn-bias: 0.9
+  horizontal-bias: 0.5
+  braid-chance: 0
+palette:
+  floor: ['minecraft:polished_blackstone@1']
+  wall: ['minecraft:deepslate_bricks@5', 'minecraft:bone_block[axis=y]@1']
+  ceiling: ['minecraft:deepslate_tiles@1']
+  cap: ['minecraft:chiseled_deepslate@1']
+decoration:
+  cap-chance: 0.1
+  light-spacing: 7
+  light: minecraft:shroomlight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

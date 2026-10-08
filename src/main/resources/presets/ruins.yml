@@ -1,0 +1,28 @@
+display-name: Ruins
+description: Very wide mossy trails between low stone ruins, with loops and abundant crossing paths.
+difficulty: EASY
+accent: '#A5B89C'
+path-width: 7
+wall-thickness: 1
+wall-height: 2
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.15
+advanced:
+  branching: 0.85
+  turn-bias: 0.6
+  horizontal-bias: 0.5
+  braid-chance: 0.85
+palette:
+  floor: ['minecraft:moss_block@3', 'minecraft:coarse_dirt@2', 'minecraft:stone@1']
+  wall: ['minecraft:mossy_stone_bricks@4', 'minecraft:cracked_stone_bricks@3']
+  ceiling: ['minecraft:stone_bricks@1']
+  cap: ['minecraft:moss_block@3', 'minecraft:mossy_stone_bricks@1']
+decoration:
+  cap-chance: 0.95
+  light-spacing: 5
+  light: minecraft:verdant_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

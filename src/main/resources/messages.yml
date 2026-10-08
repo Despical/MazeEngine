@@ -1,0 +1,289 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                             #
+#                         MazeEngine                          #
+#                         by Despical                         #
+#                                                             #
+#             https://github.com/Despical/MazeEngine            #
+#                    https://despical.dev                      #
+#                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Adventure MiniMessage. Only section titles use bold text.
+prefix: "<#8BD5CA>MazeEngine</#8BD5CA><#606A7B>:</#606A7B> "
+line: "<#B8C2D4><text></#B8C2D4>"
+queued: "<#B8C2D4>Preparing <#DCE3EE><name></#DCE3EE>...</#B8C2D4>"
+completed: "<#91B78A><name> is ready.</#91B78A>"
+deleted: "<#B8C2D4>Maze <#DCE3EE><name></#DCE3EE> has been removed.</#B8C2D4>"
+cancelled: "<#D5B877><name> cancelled.</#D5B877>"
+reloaded: "<#91B78A>Settings reloaded.</#91B78A>"
+empty: "<#B8C2D4>No mazes yet.</#B8C2D4>"
+error: '<#FF5555><reason></#FF5555>'
+progress: "<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#B8C2D4><stage> · <percent>%</#B8C2D4>"
+list-entry: "<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#B8C2D4><status> · <preset></#B8C2D4>"
+info: "<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#B8C2D4><status> · <cells> · <preset></#B8C2D4>"
+presets-title: '<#DCE3EE><bold>Presets</bold></#DCE3EE> <#A8B8C9>(<count>)</#A8B8C9>'
+column-theme: "Theme"
+column-difficulty: "Difficulty"
+column-paths: "Paths"
+column-height: "Height"
+presets-columns: '<#8792A6><columns></#8792A6>'
+preset-row: '<columns>'
+preset-row-prefix: '  <#606A7B>•</#606A7B> '
+preset-hover: "<#DCE3EE><name></#DCE3EE><newline><newline><#B8C2D4><description></#B8C2D4><newline><newline><#8792A6>Difficulty: </#8792A6><difficulty><newline><#8792A6>Paths: </#8792A6><#DCE3EE><width> blocks wide</#DCE3EE><newline><#8792A6>Walls: </#8792A6><#DCE3EE><thickness> thick, <height> high</#DCE3EE><newline><#8792A6>Ceiling: </#8792A6><#DCE3EE><roof></#DCE3EE>"
+difficulty-easy: "Easy"
+difficulty-medium: "Medium"
+difficulty-hard: "Hard"
+ceiling-open: "Open"
+ceiling-covered: "Covered"
+presets-footer: 'Hover a row for details. Click to preview.'
+list-title: '<#DCE3EE><bold>Mazes</bold></#DCE3EE> <#A8B8C9>(<count>)</#A8B8C9>'
+maze-row: '  <#606A7B>•</#606A7B> <name> <#606A7B>·</#606A7B> <#B8C2D4><preset> · <cells> · <status></#B8C2D4>'
+maze-hover: '<#8792A6>World: </#8792A6><#DCE3EE><world></#DCE3EE><newline><#8792A6>Position: </#8792A6><#DCE3EE><origin></#DCE3EE><newline><#8792A6>Size: </#8792A6><#DCE3EE><blocks> blocks</#DCE3EE><newline><newline><#8792A6>Solution: </#8792A6><#D5B877><solution> steps</#D5B877><newline><#8792A6>Snapshot: </#8792A6><#DCE3EE><snapshot></#DCE3EE><newline><newline><#7ABFCC>Click to manage this maze.</#7ABFCC>'
+list-footer: 'Hover a row for details. Click to manage.'
+info-card: '  <#606A7B>•</#606A7B> <#8792A6>Name: </#8792A6><#8BD5CA><name></#8BD5CA><newline>  <#606A7B>•</#606A7B> <#8792A6>Theme: </#8792A6><theme> <#606A7B>·</#606A7B> <difficulty><newline>  <#606A7B>•</#606A7B> <#8792A6>Size: </#8792A6><#DCE3EE><cells> cells</#DCE3EE> <#606A7B>·</#606A7B> <#DCE3EE><blocks> blocks</#DCE3EE><newline>  <#606A7B>•</#606A7B> <#8792A6>Paths: </#8792A6><#DCE3EE><paths> wide</#DCE3EE> <#606A7B>·</#606A7B> <#8792A6>Walls: </#8792A6><#DCE3EE><thickness> thick, <height> high</#DCE3EE><newline>  <#606A7B>•</#606A7B> <#8792A6>Ceiling: </#8792A6><#DCE3EE><roof></#DCE3EE><newline>  <#606A7B>•</#606A7B> <#8792A6>Status: </#8792A6><#DCE3EE><status></#DCE3EE><newline><newline>  <#606A7B>•</#606A7B> <#8792A6>World: </#8792A6><#DCE3EE><world></#DCE3EE> <#606A7B>·</#606A7B> <#DCE3EE><origin></#DCE3EE><newline>  <#606A7B>•</#606A7B> <#8792A6>Route: </#8792A6><#D5B877><solution> steps</#D5B877> <#606A7B>·</#606A7B> <#DCE3EE><deadends> dead ends</#DCE3EE><newline>  <#606A7B>•</#606A7B> <#8792A6>Seed: </#8792A6><#DCE3EE><seed></#DCE3EE><newline>  <#606A7B>•</#606A7B> <snapshot-label><snapshot-value><newline>  <#606A7B>•</#606A7B> <#8792A6>Teleport: </#8792A6><teleport-value>'
+preview-preparing: "<#B8C2D4>Planning a preview of <#DCE3EE><name></#DCE3EE>...</#B8C2D4>"
+preview-ready: '<#DCE3EE><name></#DCE3EE> <#B8C2D4>preview created.</#B8C2D4> <actions>'
+preview-hover: "<#DCE3EE><name></#DCE3EE><newline><newline><#8792A6>Theme: </#8792A6><#B8C2D4><preset></#B8C2D4><newline><#8792A6>Size: </#8792A6><#B8C2D4><cells> cells</#B8C2D4><newline><#8792A6>Area: </#8792A6><#B8C2D4><width> × <height> × <depth> blocks</#B8C2D4><newline><newline><#8792A6>Create this exact layout.<newline>Move outside the area first.</#8792A6>"
+preview-stopped: "<#B8C2D4>Preview closed. Your terrain is unchanged.</#B8C2D4>"
+preview-ended: "<#B8C2D4>Preview ended. Create another with <#91D7E3>/maze preview</#91D7E3>.</#B8C2D4>"
+guide-started: "<#B8C2D4>Guide enabled for <#DCE3EE><name></#DCE3EE>.</#B8C2D4> <actions>"
+guide-stopped: "<#B8C2D4>Guide closed.</#B8C2D4>"
+guide-ended: "<#B8C2D4>Guide ended.</#B8C2D4>"
+preview-bar: '<#8BD5CA>Preview</#8BD5CA> <#606A7B>·</#606A7B> <#DCE3EE><preset></#DCE3EE> <#606A7B>·</#606A7B> <#B8C2D4><status></#B8C2D4>'
+guide-bar: "<#8BD5CA>Guide</#8BD5CA> <#606A7B>·</#606A7B> <#B8C2D4><status></#B8C2D4>"
+preview-loading: "Loading <percent>%"
+preview-visible: 'Displaying'
+preview-planning: "Preparing"
+guide-outside: "Enter the maze"
+guide-distance: "<steps> steps to exit"
+spawn-saved: "<#91B78A>Teleport point saved.</#91B78A>"
+spawn-reset: "<#B8C2D4>Teleport point reset.</#B8C2D4>"
+delete-prompt: "<#C44B5B>Delete <name>?</#C44B5B> <actions>"
+delete-hover: '<#FF5555><method></#FF5555><newline><newline><#A8B8C9>The entire maze area is affected.<newline>This choice expires in 60 seconds.</#A8B8C9>'
+confirm-expired: "<#D5B877>This choice expired. Try again.</#D5B877>"
+action-dismissed: "<#B8C2D4>Cancelled.</#B8C2D4>"
+button-build: "[Create]"
+button-close: "[Close]"
+button-cancel: "[Cancel]"
+button-teleport: "[Teleport]"
+button-guide: "[Guide]"
+button-guide-open: '[Open Guide]'
+hover-guide-open: '<#8BD5CA>Show your route to the exit again.</#8BD5CA>'
+button-delete: "[Delete]"
+hover-build: "<#91B78A>Create this exact layout.</#91B78A><newline><#A8B8C9>Move outside the preview area first.</#A8B8C9>"
+hover-close: "<#B8C2D4>Close this preview or guide.</#B8C2D4>"
+hover-cancel: "<#D5B877>Cancel this operation.</#D5B877>"
+hover-teleport: "<#91D7E3>Teleport to <name>.</#91D7E3>"
+hover-guide: "<#8BD5CA>Show the way to the exit.</#8BD5CA>"
+hover-delete: "<#C44B5B>Review this maze's deletion.</#C44B5B>"
+help-title: '<#DCE3EE><bold>Maze Engine Commands</bold></#DCE3EE>'
+help-row: '  <#606A7B>•</#606A7B> <command> <#606A7B>·</#606A7B> <#B8C2D4><description></#B8C2D4>'
+help-footer: 'Hover for details. Click a command to fill it in.'
+teleported: "<#B8C2D4>Teleported to <#91D7E3><name></#91D7E3>.</#B8C2D4>"
+stage-journal: "Preparing"
+stage-chunks: "Loading region"
+stage-preflight: "Checking region"
+stage-snapshot: "Capturing snapshot"
+stage-save_snapshot: "Saving snapshot"
+stage-write_journal: "Preparing blocks"
+stage-build: "Generating maze"
+stage-restore: "Restoring terrain"
+stage-commit: "Saving maze"
+stage-finished: "Complete"
+
+help-description: '<#A8B8C9>Commands and settings. </#A8B8C9><link>'
+help-section: '  <#8AADD3><section></#8AADD3>'
+help-command-hover: '<#91D7E3><command></#91D7E3><newline><newline><#B8C2D4><description></#B8C2D4><newline><newline><#7ABFCC>Click to fill in this command.</#7ABFCC>'
+info-hint: '<#7ABFCC>ⓘ</#7ABFCC> <#A8B8C9><text></#A8B8C9>'
+help-concepts-link: '  <link> <#A8B8C9>Seed, complexity and more.</#A8B8C9>'
+button-concepts: 'Click here to learn more.'
+hover-concepts: '<#7ABFCC>Click to learn how maze settings work.</#7ABFCC>'
+button-previous: '[Previous]'
+button-next: '[Next]'
+hover-previous: '<#7ABFCC>Click to open the previous page.</#7ABFCC>'
+hover-next: '<#7ABFCC>Click to open the next page.</#7ABFCC>'
+page-navigation: '<previous>  <#A8B8C9><page> / <pages></#A8B8C9>  <next>'
+concepts-title: '<#DCE3EE><bold>Maze Settings</bold></#DCE3EE>'
+concepts-description: '<#A8B8C9>Understand the settings before you build.</#A8B8C9>'
+concept-card: '  <#606A7B>•</#606A7B> <#8BD5CA><term></#8BD5CA><newline><#B8C2D4><description></#B8C2D4><newline><newline>    <example>'
+concepts-footer: 'Click an example to fill it in.'
+hover-example: '<#7ABFCC>Click to fill in this example.</#7ABFCC>'
+button-back-help: '[Back to commands]'
+hover-back-help: '<#7ABFCC>Click to return to the command list.</#7ABFCC>'
+presets-description: '<#A8B8C9>Choose a theme and difficulty for your maze.</#A8B8C9>'
+list-description: '<#A8B8C9>View and manage your saved mazes.</#A8B8C9>'
+info-title: '<#DCE3EE><bold>Maze Details</bold></#DCE3EE>'
+info-description: '<#A8B8C9>View this maze and choose an action.</#A8B8C9>'
+guide-already-active: '<#B8C2D4>Guide already active for <#DCE3EE><name></#DCE3EE>.</#B8C2D4> <actions>'
+button-guide-close: '[Close guide]'
+hover-guide-close: '<#7ABFCC>Click to close your current guide.</#7ABFCC>'
+help-group-build: 'Build & preview'
+help-group-explore: 'Explore & navigate'
+help-group-manage: 'Manage mazes'
+help-group-reference: 'Reference'
+help-desc-create: 'Create a maze'
+help-detail-create: 'Create a maze near you. Add width and depth to choose its size, or --preset to select a theme.'
+help-desc-preview: 'See it before creating'
+help-detail-preview: 'Preview the theme, layout and wall dimensions without changing terrain. Use the Create button when you are happy with it.'
+help-desc-preview-stop: 'Close your preview'
+help-detail-preview-stop: 'Remove your current preview. No terrain is changed.'
+help-desc-presets: 'Choose a theme'
+help-detail-presets: 'Compare themes and difficulty. Hover rows for details, then click one to preview it.'
+help-desc-list: 'Browse saved mazes'
+help-detail-list: 'List saved mazes. Hover for details and click a row to open its controls. Use the page buttons for longer lists.'
+help-desc-info: 'Open maze controls'
+help-detail-info: 'See a saved maze and its actions, including teleporting, enabling a guide and requesting deletion.'
+help-desc-tp: 'Go to the maze'
+help-detail-tp: 'Teleport to the saved teleport point, or the entrance if no custom point is set.'
+help-desc-solve: 'Follow the way out'
+help-detail-solve: 'Show private arrows along the shortest route to the exit. Only you can see your guide.'
+help-desc-solve-stop: 'Close your guide'
+help-detail-solve-stop: 'Remove your active guide. The maze itself stays unchanged.'
+help-desc-setspawn: 'Save a teleport point'
+help-detail-setspawn: 'Save where you are standing as the teleport destination. Stand on a safe solid floor with enough room above you.'
+help-desc-setspawn-reset: 'Use the entrance again'
+help-detail-setspawn-reset: 'Remove the custom teleport point. Future teleports use the generated entrance.'
+help-desc-regenerate: 'Rebuild the maze'
+help-detail-regenerate: 'Rebuild the saved maze. Use --repair to restore its structure without clearing passages. Repair preserves the seed and cannot be combined with --seed or --new-seed.'
+help-desc-delete: 'Review maze deletion'
+help-detail-delete: 'Open a deletion review with Delete and Cancel buttons. An available snapshot restores the original terrain; otherwise the region is cleared.'
+help-desc-cancel: 'Cancel an operation'
+help-detail-cancel: 'Cancel a running creation or edit. If editing has already started, the maze may need regeneration or snapshot restoration.'
+help-desc-reload: 'Reload settings'
+help-detail-reload: 'Reload messages, settings and presets. Saved mazes keep their existing geometry and palette.'
+help-desc-help: 'Browse commands'
+help-detail-help: 'Browse every command available to you. Use the page buttons or open Maze settings for explanations and examples.'
+concept-name-seed: 'Seed'
+concept-text-seed: 'A seed is a number that chooses the layout. Reusing it with the same size and preset reproduces the same maze. Omit it for a random layout.'
+concept-name-complexity: 'Complexity'
+concept-text-complexity: 'A value from 0 to 1. Higher values tend to create longer, more winding branches. It changes the layout, not the theme or wall dimensions.'
+concept-name-cells: 'Cells'
+concept-text-cells: 'Width and depth count maze cells, not individual Minecraft blocks. Wider paths and thicker walls make the same cell grid occupy more space.'
+concept-name-geometry: 'Path and wall dimensions'
+concept-text-geometry: 'Path width controls walking space. Wall thickness and wall height control the barriers. You can override these preset settings with command options.'
+concept-name-preset: 'Presets and difficulty'
+concept-text-preset: 'A preset selects the theme, dimensions and path style. Easy, Medium and Hard describe the intended challenge. Saved mazes keep their chosen settings.'
+concept-name-connections: 'Routes and shortcuts'
+concept-text-connections: 'Some themes have one route between any two cells. Others add loops and shortcuts. The guide always finds a shortest route to the exit.'
+concept-name-placement: 'Placement modes'
+concept-text-placement: 'CLEAR replaces the whole area. SAFE checks for free space first. REPLACE only permits configured block types. Players must leave the area before editing.'
+concept-name-snapshot: 'Snapshots'
+concept-text-snapshot: 'With WorldEdit installed, a snapshot saves the original blocks before editing. Deleting that maze can restore the original terrain. Snapshots are optional.'
+concept-name-selection: 'WorldEdit selections'
+concept-text-selection: 'Select a cuboid with WorldEdit, then use --selection. The plugin fits the largest cell grid and the chosen wall height inside that selection.'
+concept-name-origin: 'World and position'
+concept-text-origin: 'Without coordinates, the maze starts near you. Use --world, --x, --y and --z together to choose a location. Console creation requires all four options.'
+panel-separator: '<#394555><strikethrough>                                                                        </strikethrough></#394555>'
+teleport-entrance: 'Entrance'
+teleport-custom: 'Custom point'
+snapshot-available: 'Terrain saved'
+snapshot-none: 'Not saved'
+preview-title: '<#DCE3EE><bold>Maze Preview</bold></#DCE3EE>'
+preview-description: '<#A8B8C9>Review </#A8B8C9><#8BD5CA><name></#8BD5CA><#A8B8C9> before creating it.</#A8B8C9>'
+preview-card: '  <#606A7B>•</#606A7B> <#8792A6>Theme: </#8792A6><theme> <#606A7B>·</#606A7B> <difficulty><newline>  <#606A7B>•</#606A7B> <#8792A6>Size: </#8792A6><#DCE3EE><cells> cells</#DCE3EE> <#606A7B>·</#606A7B> <#DCE3EE><blocks> blocks</#DCE3EE><newline>  <#606A7B>•</#606A7B> <#8792A6>Paths: </#8792A6><#DCE3EE><paths> wide</#DCE3EE> <#606A7B>·</#606A7B> <#8792A6>Walls: </#8792A6><#DCE3EE><thickness> thick, <height> high</#DCE3EE><newline>  <#606A7B>•</#606A7B> <#8792A6>Ceiling: </#8792A6><#DCE3EE><roof></#DCE3EE>'
+preview-footer: 'Only you see this preview. Create it when ready.'
+delete-title: '<#DCE3EE><bold>Remove Maze</bold></#DCE3EE>'
+delete-description: '<#A8B8C9>Check the area and removal method.</#A8B8C9>'
+delete-card: '  <#606A7B>•</#606A7B> <#8792A6>Name: </#8792A6><#8BD5CA><name></#8BD5CA><newline>  <#606A7B>•</#606A7B> <#8792A6>Theme: </#8792A6><theme> <#606A7B>·</#606A7B> <difficulty><newline>  <#606A7B>•</#606A7B> <#8792A6>Size: </#8792A6><#DCE3EE><cells> cells</#DCE3EE> <#606A7B>·</#606A7B> <#DCE3EE><blocks> blocks</#DCE3EE><newline>  <#606A7B>•</#606A7B> <#8792A6>World: </#8792A6><#DCE3EE><world></#DCE3EE>'
+delete-restore: 'The maze will be removed and its saved original terrain restored.'
+delete-clear: 'The entire maze area will be cleared. No terrain snapshot is available for this operation.'
+delete-clear-snapshot: 'The entire maze area will be cleared. Your saved original terrain will not be restored.'
+delete-mode-restore: 'Restore the saved original terrain.'
+delete-mode-clear: 'Clear the entire maze area.'
+
+button-copy-seed: '[Copy seed]'
+hover-copy-seed: '<#7ABFCC>Copy this seed to your clipboard.</#7ABFCC><newline><#A8B8C9>You can paste it with Ctrl+V.</#A8B8C9>'
+snapshot-label: '<#8792A6>Snapshot: </#8792A6>'
+snapshot-hover: '<#8BD5CA>Terrain snapshot</#8BD5CA><newline><newline><#B8C2D4>A copy of the original blocks and their data,<newline>saved before this maze was created.<newline><newline>When available, deleting the maze can restore<newline>that terrain. Requires WorldEdit.</#B8C2D4>'
+preview-already-closed: '<#B8C2D4>No preview is active. </#B8C2D4><action>'
+button-new-preview: '[New preview]'
+hover-new-preview: '<#7ABFCC>Fill in /maze preview to create a preview.</#7ABFCC>'
+guide-already-closed: '<#B8C2D4>No guide is active for this maze. Use <#91D7E3>/maze solve</#91D7E3> to open one.</#B8C2D4>'
+spawn-already-default: '<#B8C2D4>This maze already uses its entrance as the teleport point.</#B8C2D4>'
+action-already-dismissed: '<#B8C2D4>This request is already closed or has expired.</#B8C2D4>'
+delete-method: '<#D5B877><text></#D5B877>'
+teleport-entrance-hover: '<#8BD5CA>Maze entrance</#8BD5CA><newline><newline><#B8C2D4>The starting point generated with the maze.<newline>Teleport brings you to this entrance.<newline><newline>Use /maze setspawn to save a different point.</#B8C2D4>'
+teleport-custom-hover: '<#8BD5CA>Saved teleport point</#8BD5CA><newline><newline><#B8C2D4>A location saved with /maze setspawn.<newline>Teleport uses it instead of the maze entrance.<newline><newline>Use /maze setspawn <name> reset to return<newline>to the generated entrance.</#B8C2D4>'
+preview-roof-covered: 'Covered when built'
+preview-roof-note: '  <#7ABFCC>ⓘ</#7ABFCC> <#A8B8C9>The roof is hidden in preview; creating the maze adds it.</#A8B8C9>'
+button-repair: '[Repair]'
+hover-repair: '<#91D7E3>Repair the saved structure.</#91D7E3><newline><#A8B8C9>Keep its layout, seed and passage contents.</#A8B8C9>'
+button-details: '[Details]'
+hover-details: '<#7ABFCC>Open this maze''s settings and controls.</#7ABFCC>'
+creation-queued-title: '<#DCE3EE><bold>Creating Maze</bold></#DCE3EE>'
+creation-queued-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9><preset> · <cells> cells</#A8B8C9>'
+regenerate-queued-title: '<#DCE3EE><bold>Rebuilding Maze</bold></#DCE3EE>'
+regenerate-queued-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9><preset> · <cells> cells</#A8B8C9>'
+repair-queued-title: '<#DCE3EE><bold>Repairing Maze</bold></#DCE3EE>'
+repair-queued-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Restoring structure · Keeping the layout</#A8B8C9>'
+completed-title: '<#DCE3EE><bold>Maze Created</bold></#DCE3EE>'
+completed-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9><preset> · <cells> cells</#A8B8C9>'
+regenerated-title: '<#DCE3EE><bold>Maze Rebuilt</bold></#DCE3EE>'
+regenerated-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9><preset> · <cells> cells</#A8B8C9>'
+repaired-title: '<#DCE3EE><bold>Maze Repaired</bold></#DCE3EE>'
+repaired-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Structure restored · Layout preserved</#A8B8C9>'
+teleported-title: '<#DCE3EE><bold>Teleport Complete</bold></#DCE3EE>'
+teleported-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9><destination></#A8B8C9>'
+deleted-title: '<#DCE3EE><bold>Maze Removed</bold></#DCE3EE>'
+deleted-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9><result></#A8B8C9>'
+cancelled-title: '<#DCE3EE><bold>Operation Cancelled</bold></#DCE3EE>'
+cancelled-body: '<#A8B8C9>Stopped the operation for </#A8B8C9><#8BD5CA><name></#8BD5CA><#A8B8C9>.</#A8B8C9>'
+
+# Shared compact panels: centered title, short body, then contextual actions.
+unknown-maze-title: '<#FF5555><bold>Unknown Maze</bold></#FF5555>'
+unknown-maze-body: '<#DCE3EE><name></#DCE3EE> <#606A7B>·</#606A7B> <#FF5555>No saved maze with this name.</#FF5555>'
+unknown-preset-title: '<#FF5555><bold>Unknown Preset</bold></#FF5555>'
+unknown-preset-body: '<#DCE3EE><name></#DCE3EE> <#606A7B>·</#606A7B> <#FF5555>Choose an available theme.</#FF5555>'
+error-title: '<#FF5555><bold>Unable to Complete</bold></#FF5555>'
+error-body: '<#FF5555><reason></#FF5555>'
+reloaded-title: '<#DCE3EE><bold>Settings Reloaded</bold></#DCE3EE>'
+reloaded-body: '<#A8B8C9>Messages, themes and settings are up to date.</#A8B8C9>'
+empty-title: '<#DCE3EE><bold>No Saved Mazes</bold></#DCE3EE>'
+empty-body: '<#A8B8C9>Create a maze to see it here.</#A8B8C9>'
+queued-title: '<#DCE3EE><bold>Preparing Maze</bold></#DCE3EE>'
+queued-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Preparing the area.</#A8B8C9>'
+preview-preparing-title: '<#DCE3EE><bold>Preparing Preview</bold></#DCE3EE>'
+preview-preparing-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Planning your layout.</#A8B8C9>'
+preview-stopped-title: '<#DCE3EE><bold>Preview Closed</bold></#DCE3EE>'
+preview-stopped-body: '<#A8B8C9>Your terrain is unchanged.</#A8B8C9>'
+preview-ended-title: '<#DCE3EE><bold>Preview Ended</bold></#DCE3EE>'
+preview-ended-body: '<#A8B8C9>Open a new preview when you are ready.</#A8B8C9>'
+preview-already-closed-title: '<#DCE3EE><bold>No Active Preview</bold></#DCE3EE>'
+preview-already-closed-body: '<#A8B8C9>Your preview is already closed.</#A8B8C9>'
+guide-started-title: '<#DCE3EE><bold>Guide Enabled</bold></#DCE3EE>'
+guide-started-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Follow your arrows to the exit.</#A8B8C9>'
+guide-already-active-title: '<#DCE3EE><bold>Guide Already Active</bold></#DCE3EE>'
+guide-already-active-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Your route is already displaying.</#A8B8C9>'
+guide-stopped-title: '<#DCE3EE><bold>Guide Closed</bold></#DCE3EE>'
+guide-stopped-body: '<#A8B8C9>Your route arrows have been removed.</#A8B8C9>'
+guide-ended-title: '<#DCE3EE><bold>Guide Ended</bold></#DCE3EE>'
+guide-ended-body: '<#A8B8C9>Choose a maze to start another guide.</#A8B8C9>'
+guide-already-closed-title: '<#DCE3EE><bold>No Active Guide</bold></#DCE3EE>'
+guide-already-closed-body: '<#A8B8C9>No guide is active for this maze.</#A8B8C9>'
+spawn-saved-title: '<#DCE3EE><bold>Teleport Point Saved</bold></#DCE3EE>'
+spawn-saved-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Future teleports use this position.</#A8B8C9>'
+spawn-reset-title: '<#DCE3EE><bold>Teleport Point Reset</bold></#DCE3EE>'
+spawn-reset-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Teleports now use the entrance.</#A8B8C9>'
+spawn-already-default-title: '<#DCE3EE><bold>Entrance Already Selected</bold></#DCE3EE>'
+spawn-already-default-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Teleports already use the entrance.</#A8B8C9>'
+confirm-expired-title: '<#DCE3EE><bold>Request Expired</bold></#DCE3EE>'
+confirm-expired-body: '<#A8B8C9>Open the maze details to review this action again.</#A8B8C9>'
+action-dismissed-title: '<#DCE3EE><bold>Removal Cancelled</bold></#DCE3EE>'
+action-dismissed-body: '<#A8B8C9>The removal request was closed. No blocks changed.</#A8B8C9>'
+action-already-dismissed-title: '<#DCE3EE><bold>Request Already Closed</bold></#DCE3EE>'
+action-already-dismissed-body: '<#A8B8C9>This request is closed or has expired.</#A8B8C9>'
+button-available-mazes: '[Available mazes]'
+hover-available-mazes: '<#7ABFCC>Browse saved mazes and open their controls.</#7ABFCC>'
+button-presets: '[Browse themes]'
+button-view-presets: '[View presets]'
+hover-presets: '<#7ABFCC>Compare available themes and preview one.</#7ABFCC>'
+button-help: '[Commands]'
+hover-help: '<#7ABFCC>Find the command and its usage.</#7ABFCC>'
+maze-exists-title: '<#DCE3EE><bold>Maze Already Exists</bold></#DCE3EE>'
+maze-exists-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>Choose another name or browse your mazes.</#A8B8C9>'
+button-undo: '[Undo]'
+hover-undo: '<#FF5555>Undo this maze''s creation.</#FF5555><newline><newline><#A8B8C9><method><newline>Available for 60 seconds, until the maze changes.</#A8B8C9>'
+undo-restore: 'Remove the maze and restore its saved original terrain.'
+undo-clear: 'Remove the maze and clear its area. No terrain snapshot was saved.'
+undo-unavailable-title: '<#DCE3EE><bold>Undo Unavailable</bold></#DCE3EE>'
+undo-unavailable-body: '<#8BD5CA><name></#8BD5CA> <#606A7B>·</#606A7B> <#A8B8C9>This maze has changed since its creation.</#A8B8C9>'

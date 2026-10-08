@@ -1,0 +1,28 @@
+display-name: Library
+description: Cozy shelf-lined aisles with a low wooden ceiling and long winding dead ends.
+difficulty: HARD
+accent: '#C9A77A'
+path-width: 2
+wall-thickness: 2
+wall-height: 3
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.92
+advanced:
+  branching: 0.08
+  turn-bias: 0.78
+  horizontal-bias: 0.5
+  braid-chance: 0
+palette:
+  floor: ['minecraft:dark_oak_planks@4', 'minecraft:oak_planks@1']
+  wall: ['minecraft:bookshelf@7', 'minecraft:dark_oak_wood[axis=y]@1']
+  ceiling: ['minecraft:dark_oak_planks@1']
+  cap: ['minecraft:oak_planks@1']
+decoration:
+  cap-chance: 0.2
+  light-spacing: 3
+  light: minecraft:glowstone
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

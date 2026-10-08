@@ -1,0 +1,23 @@
+display-name: Dungeon
+description: Narrow passages and long dead ends beneath a dark ceiling.
+difficulty: HARD
+accent: "#C6A0F6"
+path-width: 2
+wall-thickness: 2
+wall-height: 6
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.9
+palette:
+  floor: ['minecraft:polished_deepslate@3', 'minecraft:deepslate_tiles@2']
+  wall: ['minecraft:deepslate_bricks@6', 'minecraft:cracked_deepslate_bricks@2', 'minecraft:chiseled_deepslate@1']
+  ceiling: ['minecraft:deepslate_tiles@4', 'minecraft:cracked_deepslate_tiles@1']
+  cap: ['minecraft:chiseled_deepslate@1']
+decoration:
+  cap-chance: 0.1
+  light-spacing: 3
+  light: minecraft:shroomlight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

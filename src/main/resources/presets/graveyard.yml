@@ -1,0 +1,28 @@
+display-name: Graveyard
+description: Thick low stone barriers, weathered grave-like caps and scarce light hide a route full of dead ends.
+difficulty: HARD
+accent: '#A3ADB1'
+path-width: 2
+wall-thickness: 3
+wall-height: 3
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.88
+advanced:
+  branching: 0.08
+  turn-bias: 0.8
+  horizontal-bias: 0.55
+  braid-chance: 0
+palette:
+  floor: ['minecraft:podzol@3', 'minecraft:coarse_dirt@2']
+  wall: ['minecraft:stone_bricks@4', 'minecraft:mossy_stone_bricks@3', 'minecraft:cracked_stone_bricks@2']
+  ceiling: [minecraft:stone]
+  cap: ['minecraft:chiseled_stone_bricks@3', 'minecraft:cobweb@1']
+decoration:
+  cap-chance: 0.55
+  light-spacing: 12
+  light: minecraft:verdant_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

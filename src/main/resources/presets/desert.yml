@@ -1,0 +1,28 @@
+display-name: Desert
+description: Open sandy paths with frequent shortcuts.
+difficulty: EASY
+accent: "#EED49F"
+path-width: 4
+wall-thickness: 1
+wall-height: 4
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.35
+advanced:
+  branching: 0.65
+  turn-bias: 0.35
+  horizontal-bias: 0.5
+  braid-chance: 0.75
+palette:
+  floor: ['minecraft:smooth_sandstone@3', 'minecraft:cut_sandstone@1']
+  wall: ['minecraft:sandstone@4', 'minecraft:chiseled_sandstone@1']
+  ceiling: ['minecraft:sandstone@4']
+  cap: ['minecraft:chiseled_sandstone@1']
+decoration:
+  cap-chance: 0.18
+  light-spacing: 3
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

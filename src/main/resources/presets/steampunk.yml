@@ -1,0 +1,28 @@
+display-name: Steampunk
+description: Tall brass-colored caps and weathered copper frame covered industrial lanes, with long routes and occasional loops.
+difficulty: MEDIUM
+accent: '#D8AF70'
+path-width: 3
+wall-thickness: 2
+wall-height: 7
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.68
+advanced:
+  branching: 0.3
+  turn-bias: 0.35
+  horizontal-bias: 0.8
+  braid-chance: 0.4
+palette:
+  floor: ['minecraft:polished_andesite@3', 'minecraft:dark_oak_planks@1']
+  wall: ['minecraft:cut_copper@4', 'minecraft:weathered_cut_copper@2', 'minecraft:polished_blackstone@1']
+  ceiling: ['minecraft:exposed_cut_copper@3', 'minecraft:dark_oak_planks@1']
+  cap: ['minecraft:gold_block@1', 'minecraft:chiseled_copper@3']
+decoration:
+  cap-chance: 0.75
+  light-spacing: 4
+  light: minecraft:ochre_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

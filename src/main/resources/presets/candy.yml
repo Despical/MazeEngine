@@ -1,0 +1,30 @@
+display-name: Candy
+description: Candy-striped sections in red, white, pink and chocolate tones pair playful colors with many sharp turns.
+difficulty: MEDIUM
+accent: '#EB98BC'
+path-width: 4
+wall-thickness: 1
+wall-height: 6
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.5
+advanced:
+  branching: 0.55
+  turn-bias: 0.85
+  horizontal-bias: 0.5
+  braid-chance: 0.5
+palette:
+  pattern: SECTIONS
+  section-size: 6
+  floor: [minecraft:white_concrete, minecraft:pink_concrete, minecraft:red_concrete, minecraft:brown_terracotta]
+  wall: [minecraft:red_concrete, minecraft:white_concrete, minecraft:pink_stained_glass, minecraft:brown_terracotta]
+  ceiling: [minecraft:white_concrete]
+  cap: [minecraft:pink_glazed_terracotta, minecraft:white_glazed_terracotta]
+decoration:
+  cap-chance: 1
+  light-spacing: 3
+  light: minecraft:pearlescent_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

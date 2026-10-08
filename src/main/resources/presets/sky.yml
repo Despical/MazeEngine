@@ -1,0 +1,28 @@
+display-name: Sky
+description: Cloud-white paths and pale blue glass create an airy island feel, with wide lanes and gentle turns.
+difficulty: EASY
+accent: '#A8D8F0'
+path-width: 6
+wall-thickness: 2
+wall-height: 4
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.12
+advanced:
+  branching: 0.95
+  turn-bias: 0.1
+  horizontal-bias: 0.75
+  braid-chance: 0
+palette:
+  floor: ['minecraft:white_concrete@5', 'minecraft:quartz_block@1']
+  wall: ['minecraft:light_blue_stained_glass@4', 'minecraft:white_stained_glass@1']
+  ceiling: [minecraft:white_concrete]
+  cap: [minecraft:quartz_block]
+decoration:
+  cap-chance: 0.15
+  light-spacing: 2
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

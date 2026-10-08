@@ -1,0 +1,29 @@
+display-name: Wilderness
+description: Wide forest trails with shortcuts and dead ends.
+difficulty: MEDIUM
+accent: "#8BD5CA"
+# Compatible woodland blocks; states are validated at startup/reload.
+path-width: 4
+wall-thickness: 2
+wall-height: 5
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.6
+advanced:
+  branching: 0.35
+  turn-bias: 0.6
+  horizontal-bias: 0.5
+  braid-chance: 0.45
+palette:
+  floor: ['minecraft:spruce_planks@4', 'minecraft:moss_block@2', 'minecraft:coarse_dirt@1']
+  wall: ['minecraft:oak_leaves[persistent=true]@3', 'minecraft:spruce_leaves[persistent=true]@4', 'minecraft:birch_leaves[persistent=true]@3']
+  ceiling: ['minecraft:spruce_planks@1']
+  cap: ['minecraft:spruce_log[axis=y]@1']
+decoration:
+  cap-chance: 0.12
+  light-spacing: 4
+  light: minecraft:ochre_froglight
+  entrance-marker: minecraft:lime_concrete
+  exit-marker: minecraft:yellow_concrete

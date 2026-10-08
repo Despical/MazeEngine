@@ -1,0 +1,30 @@
+display-name: Abyss
+description: Single-file routes descend into the mood of the deep ocean, beneath immense dark walls and a closed ceiling.
+difficulty: HARD
+accent: '#6BAAB9'
+path-width: 1
+wall-thickness: 4
+wall-height: 10
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.99
+advanced:
+  branching: 0.01
+  turn-bias: 0.92
+  horizontal-bias: 0.3
+  braid-chance: 0
+palette:
+  floor: ['minecraft:dark_prismarine@4', 'minecraft:deepslate_tiles@1']
+  wall: ['minecraft:dark_prismarine@4', 'minecraft:obsidian@2', 'minecraft:sculk@1']
+  ceiling: [minecraft:deepslate_bricks]
+  cap: [minecraft:crying_obsidian]
+  wall-inlay: [minecraft:sea_lantern]
+decoration:
+  inlay-chance: 0.08
+  cap-chance: 0.5
+  light-spacing: 12
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

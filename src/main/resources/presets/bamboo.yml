@@ -1,0 +1,28 @@
+display-name: Bamboo
+description: Broad bamboo walks with frequent junctions and plentiful shortcuts.
+difficulty: EASY
+accent: '#B8C982'
+path-width: 6
+wall-thickness: 1
+wall-height: 3
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.2
+advanced:
+  branching: 0.9
+  turn-bias: 0.15
+  horizontal-bias: 0.5
+  braid-chance: 1
+palette:
+  floor: ['minecraft:bamboo_mosaic@4', 'minecraft:stripped_bamboo_block@1']
+  wall: ['minecraft:bamboo_block@4', 'minecraft:stripped_bamboo_block@1']
+  ceiling: ['minecraft:bamboo_planks@1']
+  cap: ['minecraft:green_terracotta@1']
+decoration:
+  cap-chance: 0.15
+  light-spacing: 2
+  light: minecraft:ochre_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

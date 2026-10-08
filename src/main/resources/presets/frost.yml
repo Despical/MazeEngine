@@ -1,0 +1,28 @@
+display-name: Frost
+description: Clear icy passages with a few misleading turns.
+difficulty: MEDIUM
+accent: "#91D7E3"
+path-width: 3
+wall-thickness: 1
+wall-height: 4
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.6
+advanced:
+  branching: 0.4
+  turn-bias: 0.6
+  horizontal-bias: 0.5
+  braid-chance: 0.5
+palette:
+  floor: ['minecraft:smooth_quartz@3', 'minecraft:packed_ice@1']
+  wall: ['minecraft:packed_ice@4', 'minecraft:blue_ice@1']
+  ceiling: ['minecraft:packed_ice@4']
+  cap: ['minecraft:blue_ice@1']
+decoration:
+  cap-chance: 0.18
+  light-spacing: 3
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

@@ -1,0 +1,28 @@
+display-name: Haunted
+description: Dim covered corridors, cobweb-topped dark walls and relentless turns make every junction unsettling.
+difficulty: HARD
+accent: '#AA93C4'
+path-width: 2
+wall-thickness: 1
+wall-height: 5
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.97
+advanced:
+  branching: 0.02
+  turn-bias: 0.98
+  horizontal-bias: 0.5
+  braid-chance: 0
+palette:
+  floor: ['minecraft:polished_deepslate@4', 'minecraft:cracked_deepslate_tiles@1']
+  wall: ['minecraft:polished_blackstone_bricks@4', 'minecraft:cracked_polished_blackstone_bricks@1']
+  ceiling: [minecraft:deepslate_tiles]
+  cap: ['minecraft:cobweb@3', 'minecraft:chiseled_polished_blackstone@1']
+decoration:
+  cap-chance: 0.7
+  light-spacing: 10
+  light: minecraft:shroomlight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

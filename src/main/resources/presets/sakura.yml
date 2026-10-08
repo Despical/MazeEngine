@@ -1,0 +1,28 @@
+display-name: Sakura
+description: Spacious pink and white paths pass cherry wood and blossom-like leaf caps, with many friendly shortcuts.
+difficulty: EASY
+accent: '#F0B1CB'
+path-width: 5
+wall-thickness: 1
+wall-height: 3
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.2
+advanced:
+  branching: 0.7
+  turn-bias: 0.25
+  horizontal-bias: 0.5
+  braid-chance: 0.85
+palette:
+  floor: ['minecraft:calcite@3', 'minecraft:pink_wool@1']
+  wall: ['minecraft:cherry_planks@3', 'minecraft:stripped_cherry_log@1', 'minecraft:pink_concrete@1']
+  ceiling: [minecraft:white_stained_glass]
+  cap: ['minecraft:cherry_leaves[persistent=true]@4', 'minecraft:pink_stained_glass@1']
+decoration:
+  cap-chance: 0.8
+  light-spacing: 3
+  light: minecraft:pearlescent_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

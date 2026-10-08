@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" fill="none">
+  <title>MazeEngine — Minecraft maze generation by Despical</title>
+  <desc>MazeEngine branding with a glowing route through a stylized maze. Thirty themes, deterministic generation, private previews and route guides.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B211F"/>
+      <stop offset=".58" stop-color="#102D29"/>
+      <stop offset="1" stop-color="#17483E"/>
+    </linearGradient>
+    <linearGradient id="route" x1="916" y1="168" x2="1104" y2="479" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BDFFAF"/>
+      <stop offset="1" stop-color="#57DCC0"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="80" y1="95" x2="1200" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#69D7B4" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#69D7B4" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#7FD4B2" stroke-opacity=".055"/>
+    </pattern>
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="640" fill="url(#background)"/>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+  <path d="M80 95H1200" stroke="url(#rule)"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="80" y="64" fill="#B8E4CE" font-size="16" font-weight="600" letter-spacing="2.5">DESPICAL</text>
+    <text x="1200" y="64" text-anchor="end" fill="#87BDAA" font-size="15" letter-spacing="1.5">MINECRAFT PLUGIN</text>
+    <text x="74" y="266" fill="#F0FFF5" font-size="94" font-weight="700" letter-spacing="-4">MazeEngine</text>
+    <text x="80" y="327" fill="#C4E2D6" font-size="30" font-weight="400">Build mazes. Shape adventures.</text>
+    <text x="80" y="386" fill="#91BDA9" font-size="21">Seeded generation, private previews</text>
+    <text x="80" y="416" fill="#91BDA9" font-size="21">and a guide that leads the way.</text>
+    <g font-size="15" font-weight="600" fill="#CEF5DE">
+      <rect x="80" y="471" width="116" height="36" rx="18" fill="#234B3F" stroke="#4B7761" stroke-opacity=".45"/>
+      <text x="138" y="494" text-anchor="middle">30 THEMES</text>
+      <rect x="208" y="471" width="188" height="36" rx="18" fill="#234B3F" stroke="#4B7761" stroke-opacity=".45"/>
+      <text x="302" y="494" text-anchor="middle">DETERMINISTIC</text>
+      <rect x="408" y="471" width="172" height="36" rx="18" fill="#234B3F" stroke="#4B7761" stroke-opacity=".45"/>
+      <text x="494" y="494" text-anchor="middle">PERSISTENT</text>
+    </g>
+    <text x="80" y="586" fill="#729F8D" font-size="15">Paper · Java 25</text>
+    <text x="1200" y="586" text-anchor="end" fill="#A5D4BC" font-size="16">github.com/Despical/MazeEngine</text>
+  </g>
+  <g stroke="#447665" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M784 225V153H1176V417"/>
+    <path d="M784 297V489H1104"/>
+    <path d="M856 153V297H936"/>
+    <path d="M1008 225V381H1032"/>
+    <path d="M1104 177V417H1140"/>
+    <path d="M936 381H1008"/>
+    <path d="M936 489V417"/>
+    <path d="M936 153V225"/>
+    <path d="M856 225H888"/>
+  </g>
+  <path d="M784 261H820V453H892V345H972V189H1068V453H1140V489H1176" stroke="url(#route)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" opacity=".32"/>
+  <path d="M784 261H820V453H892V345H972V189H1068V453H1140V489H1176" stroke="url(#route)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="784" cy="261" r="10" fill="#BDFFAF"/>
+  <circle cx="1176" cy="489" r="10" fill="#57DCC0"/>
+  <circle cx="784" cy="261" r="17" stroke="#BDFFAF" stroke-opacity=".3"/>
+  <circle cx="1176" cy="489" r="17" stroke="#57DCC0" stroke-opacity=".3"/>
+</svg>

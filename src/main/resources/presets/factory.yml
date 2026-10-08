@@ -1,0 +1,28 @@
+display-name: Factory
+description: Narrow industrial lanes beneath a high metal roof, linked by occasional service shortcuts.
+difficulty: MEDIUM
+accent: '#B6B8BE'
+path-width: 2
+wall-thickness: 1
+wall-height: 10
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.5
+advanced:
+  branching: 0.55
+  turn-bias: 0.08
+  horizontal-bias: 0.85
+  braid-chance: 0.3
+palette:
+  floor: ['minecraft:smooth_stone@4', 'minecraft:polished_andesite@1']
+  wall: ['minecraft:iron_block@4', 'minecraft:oxidized_copper@2']
+  ceiling: ['minecraft:iron_block@1']
+  cap: ['minecraft:yellow_concrete@3', 'minecraft:black_concrete@1']
+decoration:
+  cap-chance: 0.95
+  light-spacing: 4
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

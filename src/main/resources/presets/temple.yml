@@ -1,0 +1,28 @@
+display-name: Temple
+description: Long twisting halls that reward careful navigation.
+difficulty: HARD
+accent: "#F5A97F"
+path-width: 3
+wall-thickness: 2
+wall-height: 7
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.9
+advanced:
+  branching: 0.08
+  turn-bias: 0.85
+  horizontal-bias: 0.5
+  braid-chance: 0
+palette:
+  floor: ['minecraft:polished_andesite@3', 'minecraft:stone_bricks@1']
+  wall: ['minecraft:stone_bricks@4', 'minecraft:mossy_stone_bricks@2', 'minecraft:chiseled_stone_bricks@1']
+  ceiling: ['minecraft:stone_bricks@4']
+  cap: ['minecraft:chiseled_stone_bricks@1']
+decoration:
+  cap-chance: 0.18
+  light-spacing: 3
+  light: minecraft:ochre_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

@@ -1,0 +1,68 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                             #
+#                         MazeEngine                          #
+#                         by Despical                         #
+#                                                             #
+#             https://github.com/Despical/MazeEngine            #
+#                    https://despical.dev                      #
+#                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+name: MazeEngine
+version: '${version}'
+main: dev.despical.mazeengine.MazeEnginePlugin
+api-version: '1.20.6'
+description: Deterministic maze generation and persistent region management
+authors: [Despical]
+website: https://despical.dev
+softdepend: [WorldEdit, FastAsyncWorldEdit, WorldGuard, PlaceholderAPI]
+permissions:
+  mazeengine.admin:
+    description: Full maze administration
+    default: op
+    children:
+      mazeengine.use: true
+      mazeengine.create: true
+      mazeengine.list: true
+      mazeengine.info: true
+      mazeengine.tp: true
+      mazeengine.delete: true
+      mazeengine.regenerate: true
+      mazeengine.cancel: true
+      mazeengine.presets: true
+      mazeengine.preview: true
+      mazeengine.solve: true
+      mazeengine.setspawn: true
+      mazeengine.reload: true
+      mazeengine.manage.others: true
+      mazeengine.bypass: true
+  mazeengine.use:
+    default: op
+  mazeengine.create:
+    default: op
+  mazeengine.list:
+    default: op
+  mazeengine.info:
+    default: op
+  mazeengine.tp:
+    default: op
+  mazeengine.delete:
+    default: op
+  mazeengine.regenerate:
+    default: op
+  mazeengine.cancel:
+    default: op
+  mazeengine.presets:
+    default: op
+  mazeengine.reload:
+    default: op
+  mazeengine.manage.others:
+    default: op
+  mazeengine.bypass:
+    default: op
+  mazeengine.preview:
+    default: op
+  mazeengine.solve:
+    default: op
+  mazeengine.setspawn:
+    default: op

@@ -1,0 +1,28 @@
+display-name: Claustrophobic
+description: Single-file tunnels with a two-block ceiling leave no room for a full jump.
+difficulty: HARD
+accent: '#9AA5B7'
+path-width: 1
+wall-thickness: 2
+wall-height: 2
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.95
+advanced:
+  branching: 0.12
+  turn-bias: 0.85
+  horizontal-bias: 0.5
+  braid-chance: 0
+palette:
+  floor: ['minecraft:polished_deepslate@1']
+  wall: ['minecraft:deepslate_tiles@4', 'minecraft:cracked_deepslate_tiles@1']
+  ceiling: ['minecraft:polished_blackstone@1']
+  cap: ['minecraft:deepslate_tiles@1']
+decoration:
+  cap-chance: 0
+  light-spacing: 4
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

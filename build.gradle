@@ -1,0 +1,141 @@
+plugins {
+    id 'java-library'
+    id 'com.gradleup.shadow' version '9.6.1'
+}
+
+group = 'dev.despical'
+version = '1.0.0'
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.aikar.co/content/groups/aikar/' }
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://maven.enginehub.org/repo/' }
+    maven { url = 'https://repo.helpch.at/releases/' }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT'
+    compileOnly 'com.sk89q.worldedit:worldedit-bukkit:7.3.0'
+    compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.9'
+    compileOnly 'me.clip:placeholderapi:2.12.3'
+
+    implementation 'co.aikar:acf-bukkit:0.5.1-SNAPSHOT'
+    implementation 'org.bstats:bstats-bukkit:3.2.1'
+
+    testImplementation platform('org.junit:junit-bom:5.14.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+    options.compilerArgs += ['-Xlint:deprecation', '-Xlint:unchecked']
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+tasks.processResources {
+    filteringCharset = 'UTF-8'
+    inputs.property 'version', project.version
+
+    filesMatching('plugin.yml') {
+        expand(version: project.version)
+    }
+}
+
+tasks.jar {
+    archiveClassifier = 'plain'
+    manifest.attributes('paperweight-mappings-namespace': 'mojang')
+}
+
+tasks.withType(com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar).configureEach {
+    // The plugin uses public APIs only; skip older Paper remappers that cannot read Java 25 bytecode.
+    manifest.attributes('paperweight-mappings-namespace': 'mojang')
+
+    relocate 'co.aikar.commands', 'dev.despical.mazeengine.lib.acf'
+    relocate 'co.aikar.locales', 'dev.despical.mazeengine.lib.locales'
+    relocate 'org.bstats', 'dev.despical.mazeengine.lib.bstats'
+}
+
+tasks.shadowJar {
+    archiveClassifier = ''
+}
+
+// Paper 1.20.6's class processors use ASM 9.7 and cannot read Java 25 bytecode.
+// Compile the same sources with the Java 25 compiler for that server's Java 21 class format.
+tasks.register('compileCompatibilityJava', JavaCompile) {
+    source = sourceSets.main.java
+    classpath = sourceSets.main.compileClasspath
+    javaCompiler = javaToolchains.compilerFor {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+    options.release = 21
+    destinationDirectory = layout.buildDirectory.dir('classes/java/compatibility')
+}
+
+tasks.register('compatibilityJar', com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
+    dependsOn tasks.compileCompatibilityJava, tasks.processResources
+    archiveClassifier = 'mc1.20.6'
+    from(tasks.compileCompatibilityJava.destinationDirectory)
+    from(sourceSets.main.output.resourcesDir)
+    configurations = [project.configurations.runtimeClasspath]
+}
+
+tasks.build {
+    dependsOn tasks.shadowJar, tasks.compatibilityJar
+}
+
+tasks.javadoc {
+    options.encoding = 'UTF-8'
+    options.locale = 'en_US'
+    options.addStringOption('Xdoclint:all,-missing', '-quiet')
+    options.addBooleanOption('Werror', true)
+}
+
+// Documentation is opt-in; a regular build produces binaries and sources only.
+tasks.register('javadocJar', Jar) {
+    dependsOn tasks.javadoc
+    archiveClassifier = 'javadoc'
+    from(tasks.javadoc.destinationDir)
+}
+
+// Consumers depend on these contracts only; server integrations and implementation stay in the plugin.
+tasks.register('apiJar', Jar) {
+    dependsOn tasks.classes
+    archiveClassifier = 'api'
+    from(sourceSets.main.output) { include 'dev/despical/mazeengine/api/**' }
+}
+tasks.register('apiSourcesJar', Jar) {
+    archiveClassifier = 'api-sources'
+    from(sourceSets.main.allSource) { include 'dev/despical/mazeengine/api/**' }
+}
+tasks.register('apiJavadoc', Javadoc) {
+    source = fileTree('src/main/java') { include 'dev/despical/mazeengine/api/**/*.java' }
+    classpath = sourceSets.main.compileClasspath
+    destinationDir = layout.buildDirectory.dir('docs/api').get().asFile
+    options.encoding = 'UTF-8'
+    options.locale = 'en_US'
+    options.addStringOption('Xdoclint:all', '-quiet')
+    options.addBooleanOption('Werror', true)
+}
+tasks.register('apiJavadocJar', Jar) {
+    dependsOn tasks.apiJavadoc
+    archiveClassifier = 'api-javadoc'
+    from(tasks.apiJavadoc.destinationDir)
+}
+tasks.assemble { dependsOn tasks.apiJar, tasks.apiSourcesJar }
+
+tasks.withType(Jar).configureEach {
+    from('LICENSE') { into 'META-INF' }
+    from('licenses') { into 'META-INF/licenses' }
+}

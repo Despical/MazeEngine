@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>MazeEngine</title>
+  <desc>A mint route weaving through a dark teal square maze.</desc>
+  <defs>
+    <linearGradient id="background" x1="12" y1="8" x2="116" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#153E3C"/>
+      <stop offset="1" stop-color="#082925"/>
+    </linearGradient>
+    <linearGradient id="route" x1="23" y1="21" x2="105" y2="107" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BDFFAF"/>
+      <stop offset="1" stop-color="#57DCC0"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="124" height="124" rx="25" fill="url(#background)"/>
+  <rect x="2.5" y="2.5" width="123" height="123" rx="24.5" stroke="#81EAC9" stroke-opacity=".2"/>
+  <g stroke="#317064" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 43V21H107V85"/>
+    <path d="M21 65V107H85"/>
+    <path d="M43 21V65H65"/>
+    <path d="M65 21V43"/>
+    <path d="M85 54V85H65"/>
+    <path d="M65 107V96H76"/>
+  </g>
+  <path d="M21 54H32V96H54V76H76V32H96V107H107" stroke="url(#route)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="21" cy="54" r="5" fill="#BDFFAF"/>
+  <circle cx="107" cy="107" r="5" fill="#57DCC0"/>
+</svg>

@@ -1,0 +1,28 @@
+display-name: Crystal
+description: Spacious crystal halls with towering purple walls and many branching dead ends.
+difficulty: MEDIUM
+accent: '#C7A4E0'
+path-width: 5
+wall-thickness: 2
+wall-height: 9
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.45
+advanced:
+  branching: 0.8
+  turn-bias: 0.3
+  horizontal-bias: 0.2
+  braid-chance: 0
+palette:
+  floor: ['minecraft:calcite@4', 'minecraft:smooth_quartz@1']
+  wall: ['minecraft:amethyst_block@6', 'minecraft:calcite@1']
+  ceiling: ['minecraft:calcite@1']
+  cap: ['minecraft:purple_stained_glass@1']
+decoration:
+  cap-chance: 0.8
+  light-spacing: 1
+  light: minecraft:pearlescent_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

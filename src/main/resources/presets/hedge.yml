@@ -1,0 +1,23 @@
+display-name: Hedge
+description: Short garden trails with plenty of room to explore.
+difficulty: EASY
+accent: "#A6DA95"
+path-width: 3
+wall-thickness: 2
+wall-height: 3
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.55
+palette:
+  floor: ['minecraft:moss_block@3', 'minecraft:grass_block@2']
+  wall: ['minecraft:oak_leaves[persistent=true]@4', 'minecraft:azalea_leaves[persistent=true]@1']
+  ceiling: ['minecraft:oak_leaves[persistent=true]@1']
+  cap: ['minecraft:flowering_azalea_leaves[persistent=true]@1']
+decoration:
+  cap-chance: 0.3
+  light-spacing: 5
+  light: minecraft:ochre_froglight
+  entrance-marker: minecraft:lime_concrete
+  exit-marker: minecraft:yellow_concrete

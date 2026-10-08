@@ -1,0 +1,28 @@
+display-name: Copper
+description: Compact industrial corridors with a few tricky choices.
+difficulty: MEDIUM
+accent: "#F5BDA2"
+path-width: 2
+wall-thickness: 1
+wall-height: 4
+roof: true
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.7
+advanced:
+  branching: 0.3
+  turn-bias: 0.7
+  horizontal-bias: 0.5
+  braid-chance: 0.3
+palette:
+  floor: ['minecraft:polished_andesite@3', 'minecraft:cut_copper@1']
+  wall: ['minecraft:cut_copper@3', 'minecraft:exposed_cut_copper@2', 'minecraft:weathered_cut_copper@2']
+  ceiling: ['minecraft:cut_copper@3']
+  cap: ['minecraft:weathered_cut_copper@2']
+decoration:
+  cap-chance: 0.18
+  light-spacing: 3
+  light: minecraft:ochre_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

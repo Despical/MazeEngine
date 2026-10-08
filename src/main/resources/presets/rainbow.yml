@@ -1,0 +1,30 @@
+display-name: Rainbow
+description: Bright color sections alternate concrete and glass, with roomy paths and plenty of shortcuts.
+difficulty: EASY
+accent: '#F6A6DD'
+path-width: 4
+wall-thickness: 2
+wall-height: 5
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.3
+advanced:
+  branching: 0.8
+  turn-bias: 0.35
+  horizontal-bias: 0.5
+  braid-chance: 0.65
+palette:
+  pattern: SECTIONS
+  section-size: 8
+  floor: [minecraft:red_concrete, minecraft:orange_concrete, minecraft:yellow_concrete, minecraft:lime_concrete, minecraft:cyan_concrete, minecraft:blue_concrete, minecraft:purple_concrete]
+  wall: [minecraft:red_concrete, minecraft:orange_stained_glass, minecraft:yellow_concrete, minecraft:lime_stained_glass, minecraft:cyan_concrete, minecraft:blue_stained_glass, minecraft:purple_concrete, minecraft:red_stained_glass, minecraft:orange_concrete, minecraft:yellow_stained_glass, minecraft:lime_concrete, minecraft:cyan_stained_glass, minecraft:blue_concrete, minecraft:purple_stained_glass]
+  ceiling: [minecraft:white_stained_glass]
+  cap: [minecraft:red_stained_glass, minecraft:orange_stained_glass, minecraft:yellow_stained_glass, minecraft:lime_stained_glass, minecraft:cyan_stained_glass, minecraft:blue_stained_glass, minecraft:purple_stained_glass]
+decoration:
+  cap-chance: 1
+  light-spacing: 2
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

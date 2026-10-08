@@ -1,0 +1,28 @@
+display-name: Swamp
+description: Muddy paths wind around low mossy barriers, with tangled loops and dark green stone.
+difficulty: MEDIUM
+accent: '#89A76C'
+path-width: 3
+wall-thickness: 2
+wall-height: 3
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: BRAIDED
+complexity: 0.6
+advanced:
+  branching: 0.45
+  turn-bias: 0.7
+  horizontal-bias: 0.3
+  braid-chance: 0.8
+palette:
+  floor: ['minecraft:packed_mud@3', 'minecraft:mud@2', 'minecraft:moss_block@1']
+  wall: ['minecraft:mossy_cobblestone@3', 'minecraft:mud_bricks@2', 'minecraft:green_terracotta@1']
+  ceiling: [minecraft:dark_oak_planks]
+  cap: ['minecraft:mangrove_leaves[persistent=true]@3', 'minecraft:moss_block@1']
+decoration:
+  cap-chance: 0.65
+  light-spacing: 6
+  light: minecraft:verdant_froglight
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

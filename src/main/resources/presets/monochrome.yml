@@ -1,0 +1,28 @@
+display-name: Monochrome
+description: Heavy black-and-white walls form long parallel lanes with rare turns and no shortcuts.
+difficulty: HARD
+accent: '#D0D5DD'
+path-width: 3
+wall-thickness: 4
+wall-height: 5
+roof: false
+snapshot: false
+placement: CLEAR
+algorithm: PERFECT
+complexity: 0.95
+advanced:
+  branching: 0.02
+  turn-bias: 0.04
+  horizontal-bias: 0.97
+  braid-chance: 0
+palette:
+  floor: ['minecraft:white_concrete@1']
+  wall: ['minecraft:black_concrete@5', 'minecraft:gray_concrete@1']
+  ceiling: ['minecraft:white_concrete@1']
+  cap: ['minecraft:white_concrete@1']
+decoration:
+  cap-chance: 1
+  light-spacing: 6
+  light: minecraft:sea_lantern
+  entrance-marker: minecraft:emerald_block
+  exit-marker: minecraft:gold_block

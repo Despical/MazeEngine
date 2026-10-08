@@ -1,0 +1,98 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                             #
+#                         MazeEngine                          #
+#                         by Despical                         #
+#                                                             #
+#             https://github.com/Despical/MazeEngine            #
+#                    https://despical.dev                      #
+#                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Reload with /maze reload. Invalid values reject the entire reload.
+# Existing mazes keep their saved layout and preset; presentation settings are global.
+performance:
+  # Shared block budget per server tick across all operations. Range: 1..100000.
+  # Chunk acquisition, preflight, snapshot capture and block writes share this budget.
+  blocks-per-tick: 3000
+  # Maximum processing time per tick in milliseconds. Range: 0.1..40.0.
+  millis-per-tick: 4.0
+  # Maximum active operations, including planning and spawn-point saves. Range: 1..8.
+  max-concurrent: 1
+
+limits:
+  # Maximum logical cells (width multiplied by depth). Range: 4..1000000.
+  max-cells: 40000
+  # Maximum physical block volume, including floor and roof. Range: 16..16000000.
+  max-volume: 4000000
+  # Maximum chunks intersecting a maze's footprint. Range: 1..4096.
+  max-chunks: 1024
+
+defaults:
+  # Width and depth when dimensions are omitted. Minimum: 2; square must fit max-cells.
+  cells: 21
+
+protection:
+  # Protect saved maze blocks against players, fluids, fire, growth, explosions and pistons.
+  # Players with mazeengine.bypass can edit blocks. Active operations always stay protected.
+  # External world editors must respect maze regions themselves.
+  enabled: true
+  # Cancel mob spawning above saved or pending maze footprints, including wall and roof tops.
+  # Independent of block protection; does not remove existing mobs or affect display entities.
+  prevent-mob-spawns: true
+
+placement:
+  # Materials allowed by REPLACE preflight, and at floor level by SAFE preflight.
+  # Air is always allowed. CLEAR does not use this list.
+  replaceable:
+    - STONE
+    - DIRT
+    - GRASS_BLOCK
+    - COARSE_DIRT
+    - ROOTED_DIRT
+    - PODZOL
+    - MOSS_BLOCK
+    - SHORT_GRASS
+    - TALL_GRASS
+    - SNOW
+
+progress:
+  # Show operation progress to the player who started it.
+  enabled: true
+  # Boss bar color: PINK, BLUE, RED, GREEN, YELLOW, PURPLE or WHITE.
+  color: GREEN
+  # PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12 or NOTCHED_20.
+  overlay: PROGRESS
+
+visuals:
+  # Shared maximum new preview displays per tick. Range: 1..1000.
+  spawns-per-tick: 100
+  # Display view-range multiplier (1.0 is 64 client blocks). Range: 0.1..16.0.
+  view-range: 8.0
+  # Override display lighting; each value accepts 0..15.
+  brightness:
+    block: 15
+    sky: 15
+  # Show preview loading status and guide distance in the action bar.
+  action-bar: true
+  preview:
+    # Lifetime of a preview and its buttons, in seconds. Range: 1..3600.
+    duration-seconds: 300
+    # Maximum simultaneous preview sessions. Range: 1..32.
+    max-sessions: 8
+    # Maximum displays per preview before geometry is simplified. Range: 100..12000.
+    max-displays: 12000
+  guide:
+    # Lifetime of a route guide and its close button, in seconds. Range: 1..3600.
+    duration-seconds: 600
+    # Maximum cell transitions drawn ahead of the player. Range: 1..32.
+    look-ahead: 7
+    # Block data for arrows. Use minecraft:red_concrete, for example, to change color.
+    # Supports block states; the material must be visible, not air.
+    block: minecraft:lime_concrete
+    # Arrow height above the maze's floor origin. Range: 1.01..2.0.
+    elevation: 1.14
+    # Arrow stroke width and vertical thickness, in blocks.
+    # Wider arrows are hidden if any corner would cross a maze wall.
+    # Width range: 0.01..0.5; thickness range: 0.005..0.25.
+    width: 0.05
+    thickness: 0.025
