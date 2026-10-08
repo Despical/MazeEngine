@@ -31,7 +31,7 @@ Read the [documentation](https://docs.despical.dev/maze-engine/) for setup instr
 
 ## Installation
 
-MazeEngine supports Paper 1.21.11 and newer, including 26.x. Use Java 25 to run your server and build the project. Spigot and Folia are not supported.
+MazeEngine supports [Paper 1.21.11 and newer](https://papermc.io/downloads/paper). Use [Java 25](https://adoptium.net/temurin/releases/?version=25) to run your server and build the project. Spigot and Folia are not supported.
 
 Build the plugin, copy `build/libs/mazeengine-1.0.0.jar` into `plugins/` and restart. Missing settings and presets are installed under `plugins/MazeEngine/`; existing files are preserved.
 
@@ -148,6 +148,8 @@ Install [PlaceholderAPI](https://wiki.placeholderapi.com/) to use these placehol
 | `%mazeengine_current_<field>%` | Field from the maze the player is currently inside. |
 | `%mazeengine_maze_<name>_<field>%` | Field from a named maze, for example `%mazeengine_maze_garden_theme%`. |
 
+Replace `<field>` with one of the suffixes below to choose the value you want to display.
+
 | Field | Value |
 | --- | --- |
 | `name` | Saved maze name. |
@@ -167,37 +169,23 @@ Current-maze and named-maze fields return empty text when no matching maze exist
 
 ---
 
-## Building
+## Build from Source
 
-Install Java 25 and Git, then clone the repository:
+Install [Java 25](https://adoptium.net/temurin/releases/?version=25) and [Git](https://git-scm.com/downloads).
 
-```bash
-git clone https://github.com/Despical/MazeEngine.git
-cd MazeEngine
-./gradlew clean build
-```
+1. Clone the repository with `git clone https://github.com/Despical/MazeEngine.git`.
+2. Enter the project folder with `cd MazeEngine`.
+3. Build the plugin:
 
-On Windows, use the batch wrapper after cloning and entering the repository:
+   ```bash
+   ./gradlew clean build
+   ```
 
-```cmd
-gradlew.bat clean build
-```
+   On Windows, use `gradlew.bat clean build`.
 
-Artifacts are created under `build/libs/`. The build runs unit tests and produces the plugin, API and source JARs. Javadocs are optional.
+The build runs unit tests and creates the plugin, API and source JARs under `build/libs/`.
 
-To generate API Javadocs under `build/docs/api/`:
-
-```bash
-./gradlew apiJavadoc
-```
-
-On Windows:
-
-```cmd
-gradlew.bat apiJavadoc
-```
-
-Use `javadocJar apiJavadocJar` with either wrapper to package the full-project and API Javadocs as JARs. GitHub Actions checks the build and documentation in separate steps.
+API Javadocs are optional: run `./gradlew apiJavadoc` (Windows: `gradlew.bat apiJavadoc`) to generate them under `build/docs/api/`. Use `javadocJar apiJavadocJar` with the wrapper if you also want documentation JARs.
 
 ---
 

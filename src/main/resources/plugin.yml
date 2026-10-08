@@ -1,24 +1,24 @@
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#                                                             #
-#                         MazeEngine                          #
-#                         by Despical                         #
-#                                                             #
-#             https://github.com/Despical/MazeEngine            #
-#                    https://despical.dev                      #
-#                                                             #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#                                 MazeEngine                                  #
+#                                 by Despical                                 #
+#                                                                             #
+#                   https://github.com/Despical/MazeEngine                    #
+#                   https://docs.despical.dev/maze-engine/                    #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 name: MazeEngine
 version: '${version}'
 main: dev.despical.mazeengine.MazeEnginePlugin
 api-version: '1.21.11'
-description: Deterministic maze generation and persistent region management
+description: Build themed mazes with private previews, route guides and terrain restoration
 authors: [Despical]
-website: https://despical.dev
+website: https://docs.despical.dev/maze-engine/
 softdepend: [WorldEdit, FastAsyncWorldEdit, WorldGuard, PlaceholderAPI]
 permissions:
   mazeengine.admin:
-    description: Full maze administration
+    description: Grants all maze commands, management of other players' mazes and protection bypass
     default: op
     children:
       mazeengine.use: true
@@ -37,32 +37,47 @@ permissions:
       mazeengine.manage.others: true
       mazeengine.bypass: true
   mazeengine.use:
+    description: Access maze commands and the in-game help panels
     default: op
   mazeengine.create:
+    description: Create mazes and build completed private previews
     default: op
   mazeengine.list:
+    description: Browse the list of saved mazes
     default: op
   mazeengine.info:
+    description: View a maze's geometry, seed, status and management controls
     default: op
   mazeengine.tp:
+    description: Teleport to a maze's saved destination or entrance
     default: op
   mazeengine.delete:
+    description: Delete managed mazes and clear their blocks or restore saved terrain
     default: op
   mazeengine.regenerate:
+    description: Regenerate managed mazes with another seed or repair their non-air blocks
     default: op
   mazeengine.cancel:
+    description: Cancel an active operation on a managed maze
     default: op
   mazeengine.presets:
+    description: Browse available maze themes and their settings
     default: op
   mazeengine.reload:
+    description: Validate and reload settings, messages and presets
     default: op
   mazeengine.manage.others:
+    description: Manage mazes owned by other players using the corresponding command permissions
     default: op
   mazeengine.bypass:
+    description: Bypass player-edit protection in mazes without an active operation
     default: op
   mazeengine.preview:
+    description: Create and close private maze previews without changing terrain
     default: op
   mazeengine.solve:
+    description: Open and close a private route guide through a completed maze
     default: op
   mazeengine.setspawn:
+    description: Set a managed maze's teleport point or reset it to the entrance
     default: op

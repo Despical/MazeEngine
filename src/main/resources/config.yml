@@ -1,12 +1,12 @@
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#                                                             #
-#                         MazeEngine                          #
-#                         by Despical                         #
-#                                                             #
-#             https://github.com/Despical/MazeEngine            #
-#                    https://despical.dev                      #
-#                                                             #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#                                 MazeEngine                                  #
+#                                 by Despical                                 #
+#                                                                             #
+#                   https://github.com/Despical/MazeEngine                    #
+#         https://docs.despical.dev/maze-engine/configuration/config/         #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Reload with /maze reload. Invalid values reject the entire reload.
 # Existing mazes keep their saved layout and preset; presentation settings are global.

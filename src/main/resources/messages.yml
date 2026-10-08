@@ -1,12 +1,12 @@
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#                                                             #
-#                         MazeEngine                          #
-#                         by Despical                         #
-#                                                             #
-#             https://github.com/Despical/MazeEngine            #
-#                    https://despical.dev                      #
-#                                                             #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#                                 MazeEngine                                  #
+#                                 by Despical                                 #
+#                                                                             #
+#                   https://github.com/Despical/MazeEngine                    #
+#        https://docs.despical.dev/maze-engine/configuration/messages/        #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Adventure MiniMessage. Only section titles use bold text.
 prefix: "<#8BD5CA>MazeEngine</#8BD5CA><#606A7B>:</#606A7B> "
