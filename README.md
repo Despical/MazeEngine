@@ -3,7 +3,7 @@
 [![CI](https://github.com/Despical/MazeEngine/actions/workflows/build.yml/badge.svg)](https://github.com/Despical/MazeEngine/actions/workflows/build.yml)
 ![Java](https://img.shields.io/badge/Java-25-007396.svg)
 ![Gradle](https://img.shields.io/badge/Gradle-9.7.1-079ec0?logo=gradle&logoColor=white)
-![Paper](https://img.shields.io/badge/Paper-1.20.6%20%7C%201.21.11%20%7C%2026.x-62b47a)
+![Paper](https://img.shields.io/badge/Paper-1.21.11%2B-62b47a)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
 MazeEngine creates persistent, deterministic Minecraft mazes with themed blocks, private previews and a route guide.
@@ -31,16 +31,9 @@ Read the [documentation](https://docs.despical.dev/maze-engine/) for setup instr
 
 ## Installation
 
-MazeEngine supports Paper 1.20.6, 1.21.11 and 26.x, and requires Java 25 to run and build. Spigot and Folia are not supported.
+MazeEngine supports Paper 1.21.11 and newer, including 26.x. Use Java 25 to run your server and build the project. Spigot and Folia are not supported.
 
-Build the plugin, copy the JAR for your server version from `build/libs/` into `plugins/` and restart:
-
-| Server version | Plugin JAR |
-| --- | --- |
-| Paper 1.20.6 | `mazeengine-1.0.0-mc1.20.6.jar` |
-| Paper 1.21.11 and 26.x | `mazeengine-1.0.0.jar` |
-
-The 1.20.6 variant uses Java 21 bytecode for that server's older plugin loader. Both variants are built from the same sources with Java 25. Missing settings and presets are installed under `plugins/MazeEngine/`; existing files are preserved.
+Build the plugin, copy `build/libs/mazeengine-1.0.0.jar` into `plugins/` and restart. Missing settings and presets are installed under `plugins/MazeEngine/`; existing files are preserved.
 
 [WorldEdit](https://worldedit.enginehub.org/en/latest/) or [FastAsyncWorldEdit](https://intellectualsites.gitbook.io/fastasyncworldedit) is required for selections and terrain snapshots. [WorldGuard](https://worldguard.enginehub.org/en/latest/) checks region permissions during preflight and block writes when installed. [PlaceholderAPI](https://wiki.placeholderapi.com/) is optional.
 
@@ -190,7 +183,7 @@ On Windows, use the batch wrapper after cloning and entering the repository:
 gradlew.bat clean build
 ```
 
-Artifacts are created under `build/libs/`. The build runs unit tests and produces the standard plugin, the 1.20.6 compatibility plugin, API and source JARs. Javadocs are optional.
+Artifacts are created under `build/libs/`. The build runs unit tests and produces the plugin, API and source JARs. Javadocs are optional.
 
 To generate API Javadocs under `build/docs/api/`:
 

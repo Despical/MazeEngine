@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT'
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
     compileOnly 'com.sk89q.worldedit:worldedit-bukkit:7.3.0'
     compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.9'
     compileOnly 'me.clip:placeholderapi:2.12.3'
@@ -31,7 +31,7 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.14.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testImplementation 'io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT'
+    testImplementation 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -58,8 +58,9 @@ tasks.jar {
     manifest.attributes('paperweight-mappings-namespace': 'mojang')
 }
 
-tasks.withType(com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar).configureEach {
-    // The plugin uses public APIs only; skip older Paper remappers that cannot read Java 25 bytecode.
+tasks.shadowJar {
+    archiveClassifier = ''
+    // Public APIs require no server-internal remapping.
     manifest.attributes('paperweight-mappings-namespace': 'mojang')
 
     relocate 'co.aikar.commands', 'dev.despical.mazeengine.lib.acf'
@@ -67,32 +68,8 @@ tasks.withType(com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar).confi
     relocate 'org.bstats', 'dev.despical.mazeengine.lib.bstats'
 }
 
-tasks.shadowJar {
-    archiveClassifier = ''
-}
-
-// Paper 1.20.6's class processors use ASM 9.7 and cannot read Java 25 bytecode.
-// Compile the same sources with the Java 25 compiler for that server's Java 21 class format.
-tasks.register('compileCompatibilityJava', JavaCompile) {
-    source = sourceSets.main.java
-    classpath = sourceSets.main.compileClasspath
-    javaCompiler = javaToolchains.compilerFor {
-        languageVersion = JavaLanguageVersion.of(25)
-    }
-    options.release = 21
-    destinationDirectory = layout.buildDirectory.dir('classes/java/compatibility')
-}
-
-tasks.register('compatibilityJar', com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
-    dependsOn tasks.compileCompatibilityJava, tasks.processResources
-    archiveClassifier = 'mc1.20.6'
-    from(tasks.compileCompatibilityJava.destinationDirectory)
-    from(sourceSets.main.output.resourcesDir)
-    configurations = [project.configurations.runtimeClasspath]
-}
-
 tasks.build {
-    dependsOn tasks.shadowJar, tasks.compatibilityJar
+    dependsOn tasks.shadowJar
 }
 
 tasks.javadoc {

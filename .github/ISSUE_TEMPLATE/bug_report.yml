@@ -52,7 +52,7 @@ body:
     id: environment
     attributes:
       label: Minecraft and Java versions
-      placeholder: e.g. Paper 1.20.6, Java 25
+      placeholder: e.g. Paper 1.21.11, Java 25
     validations:
       required: true
   - type: textarea

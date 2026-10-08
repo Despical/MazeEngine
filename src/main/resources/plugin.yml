@@ -11,7 +11,7 @@
 name: MazeEngine
 version: '${version}'
 main: dev.despical.mazeengine.MazeEnginePlugin
-api-version: '1.20.6'
+api-version: '1.21.11'
 description: Deterministic maze generation and persistent region management
 authors: [Despical]
 website: https://despical.dev
