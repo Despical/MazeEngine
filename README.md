@@ -1,6 +1,6 @@
-![Maze Engine — 30 themed presets, arrow guides and seeded generation](assets/mazeengine-cover.png)
+![Maze Engine with 30 themed presets, arrow guides and seeded generation](assets/mazeengine-cover.png)
 
-# MazeEngine
+# Maze Engine
 
 [![CI](https://github.com/Despical/MazeEngine/actions/workflows/build.yml/badge.svg)](https://github.com/Despical/MazeEngine/actions/workflows/build.yml)
 ![Java](https://img.shields.io/badge/Java-25-007396.svg)
@@ -8,7 +8,9 @@
 ![Paper](https://img.shields.io/badge/Paper-1.21.11%2B-62b47a)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
-MazeEngine creates persistent, deterministic Minecraft mazes with themed blocks, private previews and a route guide.
+Maze Engine creates persistent, deterministic Minecraft mazes with themed blocks, private previews and a route guide.
+
+[Hub](https://hub.despical.dev/plugins/maze-engine) · [SpigotMC](https://www.spigotmc.org/resources/maze-engine-30-themes-private-previews-route-guides.139500/) · [BuiltByBit](https://builtbybit.com/resources/maze-engine-themed-maze-generator.130660/) · [Modrinth](https://modrinth.com/plugin/maze-engine)
 
 Read the [documentation](https://docs.despical.dev/maze-engine/) for setup instructions, configuration details and examples.
 
@@ -31,9 +33,17 @@ Read the [documentation](https://docs.despical.dev/maze-engine/) for setup instr
 
 ## Installation
 
-MazeEngine supports [Paper 1.21.11 and newer](https://papermc.io/downloads/paper). Use [Java 25](https://adoptium.net/temurin/releases/?version=25) to run your server and build the project. Spigot and Folia are not supported.
+Maze Engine supports [Paper](https://papermc.io/downloads/paper) and compatible forks such as [Purpur](https://purpurmc.org/download/purpur) for Minecraft **1.21.11 and later**. Run the server with **[Java 25](https://adoptium.net/temurin/releases/?version=25)**. Folia is not supported.
 
-Build the plugin, copy `build/libs/mazeengine-1.0.0.jar` into `plugins/` and restart. Missing settings and presets are installed under `plugins/MazeEngine/`; existing files are preserved.
+1. Download the latest plugin JAR from [Hub](https://hub.despical.dev/plugins/maze-engine) or [SpigotMC](https://www.spigotmc.org/resources/maze-engine-30-themes-private-previews-route-guides.139500/).
+2. Stop the server and place `mazeengine-<version>.jar` in its `plugins/` directory.
+3. Install any optional integrations you want to use, choosing builds compatible with your server version.
+4. Start the server with Java 25 and check the console for a successful Maze Engine startup.
+5. Run `/maze help` as an operator or with the relevant [permissions](https://docs.despical.dev/maze-engine/permissions/).
+
+The [BuiltByBit](https://builtbybit.com/resources/maze-engine-themed-maze-generator.130660/) and [Modrinth](https://modrinth.com/plugin/maze-engine) pages are linked above; downloads there will be available once those pages are published. Building from source is optional; see [Build from Source](#build-from-source) below.
+
+Missing settings and the 30 bundled presets are installed under `plugins/MazeEngine/`; existing files are preserved. Saved maze records and optional terrain snapshots use the same data directory.
 
 [WorldEdit](https://worldedit.enginehub.org/en/latest/) or [FastAsyncWorldEdit](https://intellectualsites.gitbook.io/fastasyncworldedit) is required for selections and terrain snapshots. [WorldGuard](https://worldguard.enginehub.org/en/latest/) checks region permissions during preflight and block writes when installed. [PlaceholderAPI](https://wiki.placeholderapi.com/) is optional.
 
@@ -49,7 +59,7 @@ Build the plugin, copy `build/libs/mazeengine-1.0.0.jar` into `plugins/` and res
 /maze solve garden
 ```
 
-Move outside the preview region before building. A matching `/maze create <name>` uses the active preview's exact settings. You can also click its Build button.
+Move outside the preview region before building. A matching `/maze create <name>` uses the active preview's exact settings. You can also click its Create button.
 
 Dimensions describe logical cells. Physical size depends on path width and wall thickness. The default origin is three blocks east and south of the player, with the floor one block below their feet.
 
@@ -137,7 +147,7 @@ Binary and source API JARs are included in the build. Generate API Javadocs sepa
 
 ## PlaceholderAPI
 
-Install [PlaceholderAPI](https://wiki.placeholderapi.com/) to use these placeholders. MazeEngine registers its expansion automatically.
+Install [PlaceholderAPI](https://wiki.placeholderapi.com/) to use these placeholders. Maze Engine registers its expansion automatically; no eCloud download is needed.
 
 | Placeholder | Value |
 | --- | --- |
@@ -183,7 +193,7 @@ Install [Java 25](https://adoptium.net/temurin/releases/?version=25) and [Git](h
 
    On Windows, use `gradlew.bat clean build`.
 
-The build runs unit tests and creates the plugin, API and source JARs under `build/libs/`.
+The build runs unit tests and creates the plugin, API and source JARs under `build/libs/`. Install `mazeengine-<version>.jar` on your server; the `-api`, `-sources` and Javadoc JARs are for developers and are not the server plugin.
 
 API Javadocs are optional: run `./gradlew apiJavadoc` (Windows: `gradlew.bat apiJavadoc`) to generate them under `build/docs/api/`. Use `javadocJar apiJavadocJar` with the wrapper if you also want documentation JARs.
 
@@ -199,4 +209,4 @@ Use four spaces, focused classes, English documentation and the existing GPL lic
 
 ## License
 
-MazeEngine is licensed under [GPL-3.0](LICENSE).
+Maze Engine is licensed under [GPL-3.0-or-later](LICENSE).
