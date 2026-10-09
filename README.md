@@ -2,13 +2,11 @@
 
 [![CI](https://github.com/Despical/MazeEngine/actions/workflows/build.yml/badge.svg)](https://github.com/Despical/MazeEngine/actions/workflows/build.yml)
 ![Java](https://img.shields.io/badge/Java-25-007396.svg)
-![Gradle](https://img.shields.io/badge/Gradle-9.7.1-079ec0?logo=gradle&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-9.8.0-079ec0?logo=gradle&logoColor=white)
 ![Paper](https://img.shields.io/badge/Paper-1.21.11%2B-62b47a)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
 MazeEngine creates persistent, deterministic Minecraft mazes with themed blocks, private previews and a route guide.
-
-![MazeEngine — seeded mazes, private previews and route guides](assets/mazeengine-social-preview.png)
 
 Read the [documentation](https://docs.despical.dev/maze-engine/) for setup instructions, configuration details and examples.
 
