@@ -1,3 +1,5 @@
+![Maze Engine — 30 themed presets, arrow guides and seeded generation](assets/mazeengine-cover.png)
+
 # MazeEngine
 
 [![CI](https://github.com/Despical/MazeEngine/actions/workflows/build.yml/badge.svg)](https://github.com/Despical/MazeEngine/actions/workflows/build.yml)
