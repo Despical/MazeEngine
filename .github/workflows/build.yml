@@ -39,6 +39,6 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: mazeengine
+          name: maze-engine
           path: build/libs/*.jar
           if-no-files-found: error

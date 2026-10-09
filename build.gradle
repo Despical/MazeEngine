@@ -113,6 +113,7 @@ tasks.register('apiJavadocJar', Jar) {
 tasks.assemble { dependsOn tasks.apiJar, tasks.apiSourcesJar }
 
 tasks.withType(Jar).configureEach {
+    archiveBaseName = 'maze-engine'
     from('LICENSE') { into 'META-INF' }
     from('licenses') { into 'META-INF/licenses' }
 }

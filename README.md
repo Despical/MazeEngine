@@ -36,7 +36,7 @@ Read the [documentation](https://docs.despical.dev/maze-engine/) for setup instr
 Maze Engine supports [Paper](https://papermc.io/downloads/paper) and compatible forks such as [Purpur](https://purpurmc.org/download/purpur) for Minecraft **1.21.11 and later**. Run the server with **[Java 25](https://adoptium.net/temurin/releases/?version=25)**. Folia is not supported.
 
 1. Download the latest plugin JAR from [Hub](https://hub.despical.dev/plugins/maze-engine) or [SpigotMC](https://www.spigotmc.org/resources/maze-engine-30-themes-private-previews-route-guides.139500/).
-2. Stop the server and place `mazeengine-<version>.jar` in its `plugins/` directory.
+2. Stop the server and place `maze-engine-<version>.jar` in its `plugins/` directory.
 3. Install any optional integrations you want to use, choosing builds compatible with your server version.
 4. Start the server with Java 25 and check the console for a successful Maze Engine startup.
 5. Run `/maze help` as an operator or with the relevant [permissions](https://docs.despical.dev/maze-engine/permissions/).
@@ -193,7 +193,7 @@ Install [Java 25](https://adoptium.net/temurin/releases/?version=25) and [Git](h
 
    On Windows, use `gradlew.bat clean build`.
 
-The build runs unit tests and creates the plugin, API and source JARs under `build/libs/`. Install `mazeengine-<version>.jar` on your server; the `-api`, `-sources` and Javadoc JARs are for developers and are not the server plugin.
+The build runs unit tests and creates the plugin, API and source JARs under `build/libs/`. Install `maze-engine-<version>.jar` on your server; the `-api`, `-sources` and Javadoc JARs are for developers and are not the server plugin.
 
 API Javadocs are optional: run `./gradlew apiJavadoc` (Windows: `gradlew.bat apiJavadoc`) to generate them under `build/docs/api/`. Use `javadocJar apiJavadocJar` with the wrapper if you also want documentation JARs.
 
