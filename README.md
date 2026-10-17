@@ -1,18 +1,24 @@
+<p align="center">
+  <img src="assets/mazeengine-icon.svg" width="128" height="128" alt="Maze Engine icon">
+</p>
+
+<h1 align="center">Maze Engine</h1>
+
+<p align="center">Maze Engine creates persistent, deterministic Minecraft mazes with themed blocks, private previews and a route guide.</p>
+
+<p align="center">
+  <a href="https://github.com/Despical/MazeEngine/actions/workflows/build.yml"><img src="https://github.com/Despical/MazeEngine/actions/workflows/build.yml/badge.svg" alt="CI"></a>
+  <img src="https://img.shields.io/badge/Java-25-007396.svg" alt="Java 25">
+  <img src="https://img.shields.io/badge/Gradle-9.8.1-079ec0?logo=gradle&amp;logoColor=white" alt="Gradle 9.8.1">
+  <img src="https://img.shields.io/badge/Paper-1.21.11%2B-62b47a" alt="Paper 1.21.11+">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a>
+</p>
+
+<p align="center"><a href="https://hub.despical.dev/plugins/maze-engine">Hub</a> · <a href="https://www.spigotmc.org/resources/maze-engine-30-themes-private-previews-route-guides.139500/">SpigotMC</a> · <a href="https://builtbybit.com/resources/maze-engine-themed-maze-generator.130660/">BuiltByBit</a> · <a href="https://modrinth.com/plugin/maze-engine">Modrinth</a></p>
+
+<p align="center">Read the <a href="https://docs.despical.dev/maze-engine/">documentation</a> for setup instructions, configuration details and examples.</p>
+
 ![Maze Engine with 30 themed presets, arrow guides and seeded generation](assets/mazeengine-cover.png)
-
-# Maze Engine
-
-[![CI](https://github.com/Despical/MazeEngine/actions/workflows/build.yml/badge.svg)](https://github.com/Despical/MazeEngine/actions/workflows/build.yml)
-![Java](https://img.shields.io/badge/Java-25-007396.svg)
-![Gradle](https://img.shields.io/badge/Gradle-9.8.0-079ec0?logo=gradle&logoColor=white)
-![Paper](https://img.shields.io/badge/Paper-1.21.11%2B-62b47a)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
-
-Maze Engine creates persistent, deterministic Minecraft mazes with themed blocks, private previews and a route guide.
-
-[Hub](https://hub.despical.dev/plugins/maze-engine) · [SpigotMC](https://www.spigotmc.org/resources/maze-engine-30-themes-private-previews-route-guides.139500/) · [BuiltByBit](https://builtbybit.com/resources/maze-engine-themed-maze-generator.130660/) · [Modrinth](https://modrinth.com/plugin/maze-engine)
-
-Read the [documentation](https://docs.despical.dev/maze-engine/) for setup instructions, configuration details and examples.
 
 ---
 
