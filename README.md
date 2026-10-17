@@ -35,8 +35,6 @@
 - Optional [WorldEdit](https://worldedit.enginehub.org/en/latest/), [FastAsyncWorldEdit](https://intellectualsites.gitbook.io/fastasyncworldedit), [WorldGuard](https://worldguard.enginehub.org/en/latest/) and [PlaceholderAPI](https://wiki.placeholderapi.com/) integrations.
 - A public API registered with Bukkit's service manager.
 
----
-
 ## Installation
 
 Maze Engine supports [Paper](https://papermc.io/downloads/paper) and compatible forks such as [Purpur](https://purpurmc.org/download/purpur) for Minecraft **1.21.11 and later**. Run the server with **[Java 25](https://adoptium.net/temurin/releases/?version=25)**. Folia is not supported.
@@ -53,8 +51,6 @@ Missing settings and the 30 bundled presets are installed under `plugins/MazeEng
 
 [WorldEdit](https://worldedit.enginehub.org/en/latest/) or [FastAsyncWorldEdit](https://intellectualsites.gitbook.io/fastasyncworldedit) is required for selections and terrain snapshots. [WorldGuard](https://worldguard.enginehub.org/en/latest/) checks region permissions during preflight and block writes when installed. [PlaceholderAPI](https://wiki.placeholderapi.com/) is optional.
 
----
-
 ## Getting started
 
 ```text
@@ -68,8 +64,6 @@ Missing settings and the 30 bundled presets are installed under `plugins/MazeEng
 Move outside the preview region before building. A matching `/maze create <name>` uses the active preview's exact settings. You can also click its Create button.
 
 Dimensions describe logical cells. Physical size depends on path width and wall thickness. The default origin is three blocks east and south of the player, with the floor one block below their feet.
-
----
 
 ## Commands
 
@@ -108,8 +102,6 @@ Creation and preview options:
 
 SAFE allows replaceable floor blocks and requires air above them. REPLACE checks occupied blocks against `placement.replaceable`. CLEAR overwrites the planned region. All modes check world bounds, overlap and player occupancy before mutation.
 
----
-
 ## Permissions
 
 `mazeengine.admin` grants all command permissions, `mazeengine.manage.others` and `mazeengine.bypass`. Permissions default to operators.
@@ -117,8 +109,6 @@ SAFE allows replaceable floor blocks and requires air above them. REPLACE checks
 Each command requires `mazeengine.use` and its matching permission, such as `mazeengine.create`, `mazeengine.preview` or `mazeengine.solve`. Building a preview requires `mazeengine.create`; repairing requires `mazeengine.regenerate`.
 
 `mazeengine.manage.others` allows managing another player's maze. `mazeengine.bypass` allows player block edits in completed protected mazes. Active world operations remain protected.
-
----
 
 ## Configuration
 
@@ -131,8 +121,6 @@ Every global setting is explained in the bundled configuration. Set `visuals.gui
 Reload validates the complete configuration before applying it. Existing mazes retain their saved preset and topology; preset edits affect new mazes. Display lighting, view range and guide geometry update on reload. Visual lifetimes are captured when sessions start.
 
 Mob spawning is blocked above maze footprints by default, independently of terrain protection. Existing mobs are not removed. Snapshots retain original terrain through regeneration; `delete --restore` requires the saved schematic.
-
----
 
 ## Public API
 
@@ -148,8 +136,6 @@ if (api != null) {
 Call the API from the server thread. Immutable snapshots can be retained afterward. Operation handles expose progress, cancellation and completion. `MazeOperationCompletedEvent` and `MazeOperationFailedEvent` report final outcomes; `OperationKind` identifies creation, regeneration, repair or deletion.
 
 Binary and source API JARs are included in the build. Generate API Javadocs separately as described below.
-
----
 
 ## PlaceholderAPI
 
@@ -183,8 +169,6 @@ Replace `<field>` with one of the suffixes below to choose the value you want to
 
 Current-maze and named-maze fields return empty text when no matching maze exists. Values refresh every 10 server ticks.
 
----
-
 ## Build from Source
 
 Install [Java 25](https://adoptium.net/temurin/releases/?version=25) and [Git](https://git-scm.com/downloads).
@@ -203,15 +187,11 @@ The build runs unit tests and creates the plugin, API and source JARs under `bui
 
 API Javadocs are optional: run `./gradlew apiJavadoc` (Windows: `gradlew.bat apiJavadoc`) to generate them under `build/docs/api/`. Use `javadocJar apiJavadocJar` with the wrapper if you also want documentation JARs.
 
----
-
 ## Security and contributing
 
 Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md). Follow [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 Use four spaces, focused classes, English documentation and the existing GPL license/class Javadoc headers. Preserve gameplay and saved maze formats unless a change explicitly requires otherwise.
-
----
 
 ## License
 
