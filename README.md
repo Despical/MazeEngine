@@ -112,7 +112,7 @@ Each command requires `mazeengine.use` and its matching permission, such as `maz
 
 ## Configuration
 
-- `config.yml`: performance budgets, limits, terrain protection, mob spawning, progress bars and visual settings.
+- `config.yml`: performance budgets, limits, terrain protection, mob spawning, progress bars, visual settings, update checks and metrics.
 - `messages.yml`: MiniMessage panels, buttons, hover text, progress labels and action bars.
 - `presets/*.yml`: geometry, generation settings, palettes and decorations for each theme.
 
