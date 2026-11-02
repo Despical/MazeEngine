@@ -34,6 +34,7 @@ import dev.despical.mazeengine.service.MazeService;
 import dev.despical.mazeengine.service.visual.MazeVisuals;
 import dev.despical.mazeengine.service.PendingActions;
 
+import dev.despical.mazeengine.util.UpdateChecker;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.ServicePriority;
@@ -92,6 +93,7 @@ public final class MazeEnginePlugin extends JavaPlugin {
             integrations = new OptionalIntegrations(this);
 
             initializeMetrics();
+            checkForUpdates();
             getLogger().info("MazeEngine enabled: " + mazes.records().size() + " saved mazes, " + settings.presets().size() + " presets.");
         } catch (Exception error) {
             getLogger().log(Level.SEVERE, "Cannot enable MazeEngine: " + error.getMessage(), error);
@@ -100,11 +102,27 @@ public final class MazeEnginePlugin extends JavaPlugin {
     }
 
     private void initializeMetrics() {
+        if (!settings.metrics()) {
+            getLogger().info("bStats metrics are disabled in config.yml.");
+            return;
+        }
+
         try {
             metrics = new Metrics(this, 34555);
         } catch (Exception metricsError) {
             getLogger().warning("bStats could not start: " + metricsError.getMessage());
         }
+    }
+
+    private void checkForUpdates() {
+        if (!settings.checkForUpdates()) {
+            return;
+        }
+
+        int spigotResourceId = 139500;
+        UpdateChecker.check(this, spigotResourceId, latest -> getLogger().info(
+            "A new version is available: v" + latest + " (running v" + getPluginMeta().getVersion()
+                + "). Download it at https://www.spigotmc.org/resources/" + spigotResourceId + "/"));
     }
 
     public void reloadSettings() throws Exception {
