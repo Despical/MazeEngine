@@ -79,8 +79,8 @@ public final class MazeService {
 
     final MazeEnginePlugin plugin;
     final MazeRepository repository;
-    private final WorldEditBridge worldEdit;
     final WorldGuardBridge worldGuard;
+    private final WorldEditBridge worldEdit;
 
     /**
      * Binds a unique accepted operation to its internal completion future.
@@ -105,26 +105,25 @@ public final class MazeService {
     final Map<String, MazeRecord> records = new TreeMap<>();
     final Map<String, MazeJob> jobs = new LinkedHashMap<>();
     final OperationTracker operations;
+
     private final MazeWorkers workers = new MazeWorkers();
     private final ChunkTickets chunkTickets;
     private final MazeRegions regions;
     private final MazeTeleports teleports;
-    private BukkitTask ticker;
+    private final BukkitTask ticker;
     private volatile boolean closed;
 
     public MazeService(MazeEnginePlugin plugin) throws Exception {
         this.plugin = plugin;
-        this.operations = new OperationTracker(() -> plugin.settings().maxConcurrent(), () -> closed,
-            plugin.getLogger());
+        this.operations = new OperationTracker(() -> plugin.settings().maxConcurrent(), () -> closed, plugin.getLogger());
         this.chunkTickets = new ChunkTickets(plugin);
         this.regions = new MazeRegions(plugin, this);
         this.teleports = new MazeTeleports(this);
         this.repository = new MazeRepository(plugin.getDataFolder().toPath());
-        worldEdit = plugin.getServer().getPluginManager().isPluginEnabled("WorldEdit")
-            || plugin.getServer().getPluginManager().isPluginEnabled("FastAsyncWorldEdit") ? new WorldEditBridge()
-                : null;
-        worldGuard = plugin.getServer().getPluginManager().isPluginEnabled("WorldGuard") ? new WorldGuardBridge()
-            : null;
+
+        var pluginManager = plugin.getServer().getPluginManager();
+        worldEdit = pluginManager.isPluginEnabled("WorldEdit") || pluginManager.isPluginEnabled("FastAsyncWorldEdit") ? new WorldEditBridge() : null;
+        worldGuard = pluginManager.isPluginEnabled("WorldGuard") ? new WorldGuardBridge() : null;
         records.putAll(MazeRecovery.load(plugin, repository));
         ticker = plugin.getServer().getScheduler().runTaskTimer(plugin, new MazeJobRunner(plugin, jobs)::tick, 1, 1);
     }
@@ -483,8 +482,7 @@ public final class MazeService {
     }
 
     void report(CommandSender sender, Throwable error) {
-        while ((error instanceof CompletionException || error instanceof ExecutionException)
-            && error.getCause() != null) {
+        while ((error instanceof CompletionException || error instanceof ExecutionException) && error.getCause() != null) {
             error = error.getCause();
         }
 

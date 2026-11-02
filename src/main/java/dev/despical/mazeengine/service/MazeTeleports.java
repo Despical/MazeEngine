@@ -91,14 +91,12 @@ final class MazeTeleports {
         return location.getBlock().isPassable() && !location.getBlock().isLiquid()
             && location.clone().add(0, 1, 0).getBlock().isPassable()
             && !location.clone().add(0, 1, 0).getBlock().isLiquid() && floor.getType().isSolid()
-            && !Set.of(Material.MAGMA_BLOCK, Material.CAMPFIRE, Material.SOUL_CAMPFIRE, Material.CACTUS)
-                .contains(floor.getType())
+            && !Set.of(Material.MAGMA_BLOCK, Material.CAMPFIRE, Material.SOUL_CAMPFIRE, Material.CACTUS).contains(floor.getType())
             && location.getWorld().getWorldBorder().isInside(location) && !busyAt(location);
     }
 
     private boolean busyAt(Location location) {
         var record = service.at(location);
-
         return record != null && service.busy(record.name());
     }
 }

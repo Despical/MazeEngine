@@ -64,6 +64,7 @@ final class MazeRegeneration {
 
         service.authorize(sender, record, "regenerate");
         World world = service.world(record);
+
         service.validateRegion(world, record.bounds(), record.layout().size(), record.name());
 
         if (record.hasSnapshot() && !Files.isRegularFile(service.snapshotPath(record))) {
@@ -71,8 +72,7 @@ final class MazeRegeneration {
         }
 
         if (record.preset().snapshot() && !record.hasSnapshot()) {
-            throw new IllegalArgumentException(
-                "Incomplete initial snapshot. Delete this record before creating again.");
+            throw new IllegalArgumentException("Incomplete initial snapshot. Delete this record before creating again.");
         }
 
         service.reserve(record.name(), repair ? OperationKind.REPAIR : OperationKind.REGENERATE);
@@ -92,7 +92,6 @@ final class MazeRegeneration {
                 if (error != null) {
                     service.settle(record.name(), record, error);
                     service.report(sender, error);
-
                     return;
                 }
 
@@ -100,7 +99,6 @@ final class MazeRegeneration {
                     var failure = new IllegalArgumentException("World unloaded while planning.");
                     service.settle(record.name(), record, failure);
                     service.report(sender, failure);
-
                     return;
                 }
 

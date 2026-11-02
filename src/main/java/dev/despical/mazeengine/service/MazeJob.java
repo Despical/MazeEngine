@@ -159,7 +159,7 @@ final class MazeJob {
         };
     }
 
-    private boolean stepJournal() throws Exception {
+    private boolean stepJournal() {
         if (!pending.isDone()) {
             return false;
         }
@@ -170,7 +170,7 @@ final class MazeJob {
         return true;
     }
 
-    private boolean stepChunks() throws Exception {
+    private boolean stepChunks() {
         Bounds bounds = record.bounds();
 
         if (chunkFuture == null) {
@@ -199,7 +199,7 @@ final class MazeJob {
         return true;
     }
 
-    private boolean stepPreflight() throws Exception {
+    private boolean stepPreflight() {
         Bounds bounds = record.bounds();
 
         if (index == 0) {
@@ -271,7 +271,7 @@ final class MazeJob {
         return true;
     }
 
-    private boolean stepSaveSnapshot() throws Exception {
+    private boolean stepSaveSnapshot() {
         if (!pending.isDone()) {
             return false;
         }
@@ -292,7 +292,7 @@ final class MazeJob {
         return true;
     }
 
-    private boolean stepWriteJournal() throws Exception {
+    private boolean stepWriteJournal() {
         if (!pending.isDone()) {
             return false;
         }
@@ -303,7 +303,7 @@ final class MazeJob {
         return true;
     }
 
-    private boolean stepBuild() throws Exception {
+    private boolean stepBuild() {
         Bounds bounds = record.bounds();
 
         // CLEAR, SAFE and REPLACE share the same finished plan. Modes differ only in
@@ -354,7 +354,7 @@ final class MazeJob {
         return true;
     }
 
-    private boolean stepCommit() throws Exception {
+    private boolean stepCommit() {
         if (!pending.isDone()) {
             return false;
         }
@@ -458,7 +458,7 @@ final class MazeJob {
         service.records.put(record.name(), failed);
         record = failed;
         // Serial executor orders this after any pending journal/snapshot writes.
-        service.save(failed).whenComplete((unused, saveError) -> {
+        service.save(failed).whenComplete((_, saveError) -> {
             if (saveError != null) {
                 plugin.getLogger().log(Level.SEVERE, "Cannot save failed maze state", saveError);
             }
@@ -498,6 +498,7 @@ final class MazeJob {
 
         stage = Stage.FINISHED;
         service.jobs.remove(record.name());
+
         release();
         service.settle(record.name(), record, error);
     }

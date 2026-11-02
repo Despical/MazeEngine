@@ -97,7 +97,6 @@ abstract class DisplaySession {
 
                     if (error != null) {
                         owner.visualFailure(viewer, this);
-
                         return;
                     }
 
@@ -117,8 +116,7 @@ abstract class DisplaySession {
             entity.setRotation(0, 0);
             entity.setBillboard(Display.Billboard.FIXED);
             entity.setGravity(false);
-            entity
-                .setBrightness(new Display.Brightness(settings.visuals().blockLight(), settings.visuals().skyLight()));
+            entity.setBrightness(new Display.Brightness(settings.visuals().blockLight(), settings.visuals().skyLight()));
             entity.setShadowRadius(0);
             entity.setShadowStrength(0);
             entity.setViewRange((float) settings.visuals().viewRange());

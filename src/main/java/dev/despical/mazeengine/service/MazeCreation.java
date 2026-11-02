@@ -85,9 +85,11 @@ final class MazeCreation {
         service.operations.planningBounds.put(name, bounds);
         service.operations.planningWorlds.put(name, world.getUID());
         service.operations.planningSenders.put(name, sender);
+
         final String id = name;
         UUID token = service.operations.operationTokens.get(id);
         UUID owner = sender instanceof Player player ? player.getUniqueId() : new UUID(0, 0);
+
         service.plan(id, token, () -> new MazeGenerator().generate(width, depth, seed, preset.generation()),
             (layout, error) -> {
                 if (!token.equals(service.operations.operationTokens.get(id)) || service.closed()) {
@@ -99,7 +101,6 @@ final class MazeCreation {
                 if (error != null) {
                     service.settle(id, null, error);
                     service.report(sender, error);
-
                     return;
                 }
 
@@ -107,7 +108,6 @@ final class MazeCreation {
                     var failure = new IllegalArgumentException("World unloaded while planning.");
                     service.settle(id, null, failure);
                     service.report(sender, failure);
-
                     return;
                 }
 

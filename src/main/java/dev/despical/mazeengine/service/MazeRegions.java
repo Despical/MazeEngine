@@ -66,8 +66,7 @@ final class MazeRegions {
             throw new IllegalArgumentException("Maze exceeds configured cell or block limits.");
         }
 
-        long chunks = (long) ((bounds.maxX() >> 4) - (bounds.x() >> 4) + 1)
-            * ((bounds.maxZ() >> 4) - (bounds.z() >> 4) + 1);
+        long chunks = (long) ((bounds.maxX() >> 4) - (bounds.x() >> 4) + 1) * ((bounds.maxZ() >> 4) - (bounds.z() >> 4) + 1);
 
         if (chunks > settings.maxChunks()) {
             throw new IllegalArgumentException("Maze exceeds the chunk limit.");
@@ -84,7 +83,8 @@ final class MazeRegions {
         var border = world.getWorldBorder();
 
         if (!border.isInside(new Location(world, bounds.x(), bounds.y(), bounds.z()))
-            || !border.isInside(new Location(world, bounds.maxX() + 0.999, bounds.y(), bounds.maxZ() + 0.999))) {
+            || !border.isInside(new Location(world, bounds.maxX() + 0.999, bounds.y(), bounds.maxZ() + 0.999))
+        ) {
             throw new IllegalArgumentException("Maze would exceed the world border.");
         }
 
@@ -98,7 +98,8 @@ final class MazeRegions {
         for (var entry : service.operations.planningBounds.entrySet()) {
             if (!entry.getKey().equals(ignore)
                 && service.operations.planningWorlds.get(entry.getKey()).equals(world.getUID())
-                && entry.getValue().overlaps(bounds)) {
+                && entry.getValue().overlaps(bounds)
+            ) {
                 throw new IllegalArgumentException("Region overlaps a pending generation: " + entry.getKey());
             }
         }
@@ -110,7 +111,8 @@ final class MazeRegions {
 
             if (location.getX() + 0.3 >= bounds.x() && location.getX() - 0.3 < bounds.maxX() + 1
                 && location.getZ() + 0.3 >= bounds.z() && location.getZ() - 0.3 < bounds.maxZ() + 1
-                && location.getY() + 1.8 >= bounds.y() && location.getY() < bounds.maxY() + 1) {
+                && location.getY() + 1.8 >= bounds.y() && location.getY() < bounds.maxY() + 1
+            ) {
                 throw new IllegalArgumentException("Move all players outside the maze region before editing it.");
             }
         }
@@ -123,8 +125,7 @@ final class MazeRegions {
             if (record.worldId().equals(location.getWorld().getUID())) {
                 var bounds = record.bounds();
 
-                if (x >= bounds.x() && x <= bounds.maxX() && y >= bounds.y() && y <= bounds.maxY() && z >= bounds.z()
-                    && z <= bounds.maxZ()) {
+                if (x >= bounds.x() && x <= bounds.maxX() && y >= bounds.y() && y <= bounds.maxY() && z >= bounds.z() && z <= bounds.maxZ()) {
                     return record;
                 }
             }
@@ -135,7 +136,6 @@ final class MazeRegions {
 
     public boolean protectedAt(Location location) {
         var record = at(location);
-
         return record != null && (service.busy(record.name()) || plugin.settings().protection());
     }
 
@@ -154,7 +154,8 @@ final class MazeRegions {
 
         for (var entry : service.operations.planningBounds.entrySet()) {
             if (world.equals(service.operations.planningWorlds.get(entry.getKey()))
-                && aboveFootprint(location, entry.getValue())) {
+                && aboveFootprint(location, entry.getValue())
+            ) {
                 return true;
             }
         }

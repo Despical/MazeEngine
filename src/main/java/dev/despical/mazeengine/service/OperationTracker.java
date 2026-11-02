@@ -71,14 +71,14 @@ final class OperationTracker {
         this.logger = logger;
     }
 
-    private final Map<String, OperationTicket> tickets = new HashMap<>();
-    private Consumer<OperationOutcome> operationListener = ignored -> {
-    };
+    private Consumer<OperationOutcome> operationListener = _ -> {};
+
     final Set<String> reserved = new HashSet<>();
     final Map<String, Bounds> planningBounds = new HashMap<>();
     final Map<String, UUID> planningWorlds = new HashMap<>();
     final Map<String, CommandSender> planningSenders = new HashMap<>();
     final Map<String, UUID> operationTokens = new HashMap<>();
+    private final Map<String, OperationTicket> tickets = new HashMap<>();
 
     public void operationListener(Consumer<OperationOutcome> listener) {
         operationListener = Objects.requireNonNull(listener);
@@ -128,8 +128,8 @@ final class OperationTracker {
     void settle(String name, MazeRecord record, Throwable error) {
         reserved.remove(name);
         operationTokens.remove(name);
-        var ticket = tickets.remove(name);
 
+        var ticket = tickets.remove(name);
         if (ticket == null) {
             return;
         }

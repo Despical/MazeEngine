@@ -56,6 +56,7 @@ final class MazeDeletion {
 
     void execute(CommandSender sender, MazeRecord record, boolean restore) {
         service.authorize(sender, record, "delete");
+
         World world = service.world(record);
         service.ensureEmptyOfPlayers(world, record.bounds());
 
@@ -68,6 +69,7 @@ final class MazeDeletion {
         }
 
         service.reserve(record.name(), OperationKind.DELETE);
+
         var target = record.state(MazeRecord.Status.DELETING, record.hasSnapshot(), "");
         service.records.put(target.name(), target);
         service.jobs.put(target.name(), MazeJob.delete(service, sender, world, target, restore));

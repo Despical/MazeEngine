@@ -70,8 +70,10 @@ final class GuideManager {
         }
 
         removeSolver(player.getUniqueId());
+
         GuideSession solver = new GuideSession(owner, player, record);
         owner.solvers.put(player.getUniqueId(), solver);
+
         guideMessage(player, solver, "guide-started");
     }
 
@@ -108,11 +110,12 @@ final class GuideManager {
             return;
         }
 
-        if (token != null && (session == null || !session.token.toString().equals(token))) {
+        if (token != null && !session.token.toString().equals(token)) {
             throw new IllegalArgumentException("This guide has already ended.");
         }
 
         removeSolver(player.getUniqueId());
+
         owner.clearBar(player);
         plugin.messages().send(player, "guide-stopped", "name", session.name);
     }

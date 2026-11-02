@@ -72,8 +72,7 @@ final class MazeProgress implements AutoCloseable {
                 ((bounds.maxX() >> 4) - (bounds.x() >> 4) + 1) * ((bounds.maxZ() >> 4) - (bounds.z() >> 4) + 1));
             case PREFLIGHT -> 0.05 + 0.1 * fraction;
             case SNAPSHOT -> 0.15 + 0.25 * fraction;
-            case SAVE_SNAPSHOT -> 0.4;
-            case WRITE_JOURNAL -> 0.4;
+            case SAVE_SNAPSHOT, WRITE_JOURNAL -> 0.4;
             case BUILD, RESTORE -> 0.4 + 0.59 * fraction;
             case COMMIT -> 0.99;
             case FINISHED -> 1;
@@ -85,6 +84,7 @@ final class MazeProgress implements AutoCloseable {
     void update(MazeRecord record, MazeJob.Stage stage, int percent, boolean deleting, boolean restoring,
         boolean repairing) {
         bar.progress(percent / 100f);
+
         String key = "stage-" + stage.name().toLowerCase(Locale.ROOT);
         String title = plugin.messages().values().getOrDefault(key, stage.name());
 

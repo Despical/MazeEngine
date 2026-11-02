@@ -56,8 +56,8 @@ import java.util.UUID;
 public final class PendingActions implements Listener, AutoCloseable {
 
     private final MazeEnginePlugin plugin;
-    private final Map<UUID, Pending> pending = new HashMap<>();
     private final BukkitTask cleanup;
+    private final Map<UUID, Pending> pending = new HashMap<>();
 
     /**
      * Captures the exact record and actor authorized for a review request.
@@ -72,6 +72,7 @@ public final class PendingActions implements Listener, AutoCloseable {
     public PendingActions(MazeEnginePlugin plugin) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
+
         cleanup = plugin.getServer().getScheduler().runTaskTimer(plugin,
             () -> pending.values().removeIf(pendingAction -> pendingAction.expires < System.currentTimeMillis()), 20,
             20);
@@ -104,10 +105,13 @@ public final class PendingActions implements Listener, AutoCloseable {
         }
 
         pending.values().removeIf(pendingAction -> pendingAction.owner.equals(owner(sender)));
+
         UUID token = UUID.randomUUID();
         pending.put(token, new Pending(owner(sender), record, restore, System.currentTimeMillis() + 60_000));
+
         var messages = plugin.messages();
         String method = messages.values().get(restore ? "delete-mode-restore" : "delete-mode-clear");
+
         var ui = new ChatUI(plugin);
         Component confirm = ui
             .callbackButton(sender, "button-delete", "delete-hover", "#C44B5B", 60, "confirm", token.toString())
@@ -127,7 +131,6 @@ public final class PendingActions implements Listener, AutoCloseable {
 
         if (action == null || !action.owner.equals(owner(sender)) || action.expires < System.currentTimeMillis()) {
             plugin.messages().send(sender, "confirm-expired");
-
             return;
         }
 
@@ -146,7 +149,6 @@ public final class PendingActions implements Listener, AutoCloseable {
 
         if (action == null || !action.owner.equals(owner(sender)) || action.expires < System.currentTimeMillis()) {
             plugin.messages().send(sender, "action-already-dismissed");
-
             return;
         }
 
