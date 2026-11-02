@@ -59,11 +59,14 @@ public final class AtomicFiles {
     public static void write(Path destination, String value) throws IOException {
         Files.createDirectories(destination.getParent());
         Path temporary = destination.resolveSibling(destination.getFileName() + ".tmp");
+
         try {
             Files.writeString(temporary, value);
+
             try (var channel = FileChannel.open(temporary, StandardOpenOption.WRITE)) {
                 channel.force(true);
             }
+
             move(temporary, destination);
         } finally {
             Files.deleteIfExists(temporary);
