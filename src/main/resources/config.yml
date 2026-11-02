@@ -96,3 +96,9 @@ visuals:
     # Width range: 0.01..0.5; thickness range: 0.005..0.25.
     width: 0.05
     thickness: 0.025
+
+# Check for a newer MazeEngine release on startup and log a console message if one exists.
+check-for-updates: true
+
+# Enable anonymous bStats usage metrics on startup. Restart after changing this value.
+metrics: true

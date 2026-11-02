@@ -58,7 +58,9 @@ public record Settings(
     Messages messages,
     boolean preventMobSpawns,
     VisualSettings visuals,
-    ProgressSettings progress
+    ProgressSettings progress,
+    boolean metrics,
+    boolean checkForUpdates
 ) {
 
     public static Settings load(Path directory) throws Exception {
@@ -67,7 +69,8 @@ public record Settings(
 
         Set<String> allowed = new HashSet<>(Set.of("performance.blocks-per-tick", "performance.millis-per-tick",
             "performance.max-concurrent", "limits.max-cells", "limits.max-volume", "limits.max-chunks",
-            "defaults.cells", "protection.enabled", "placement.replaceable", "protection.prevent-mob-spawns"));
+            "defaults.cells", "protection.enabled", "placement.replaceable", "protection.prevent-mob-spawns",
+            "metrics", "check-for-updates"));
         allowed.addAll(VisualSettings.KEYS);
         allowed.addAll(ProgressSettings.KEYS);
         Validation.keys(config, allowed);
@@ -80,6 +83,8 @@ public record Settings(
         Validation.number(config, "limits.max-volume", true);
         Validation.type(config, "protection.enabled", Boolean.class);
         Validation.type(config, "protection.prevent-mob-spawns", Boolean.class);
+        Validation.type(config, "metrics", Boolean.class);
+        Validation.type(config, "check-for-updates", Boolean.class);
         Validation.strings(config, "placement.replaceable");
 
         int blocks = config.getInt("performance.blocks-per-tick", 3000), jobs = config.getInt("performance.max-concurrent", 1);
@@ -112,7 +117,8 @@ public record Settings(
         return new Settings(blocks, millis, jobs, cells, volume, chunks, defaults,
             config.getBoolean("protection.enabled", true), Set.copyOf(replaceable), PresetLoader.load(directory),
             Messages.load(directory.resolve("messages.yml")), config.getBoolean("protection.prevent-mob-spawns", true),
-            VisualSettings.read(config), ProgressSettings.read(config)
+            VisualSettings.read(config), ProgressSettings.read(config),
+            config.getBoolean("metrics", true), config.getBoolean("check-for-updates", true)
         );
     }
 }
