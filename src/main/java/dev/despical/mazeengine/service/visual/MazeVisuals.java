@@ -193,6 +193,11 @@ public final class MazeVisuals implements Listener, AutoCloseable {
 
     private void tick() {
         ticks++;
+
+        if (previews.isEmpty() && solvers.isEmpty()) {
+            return;
+        }
+
         long now = System.currentTimeMillis();
         int remaining = plugin.settings().visuals().spawnsPerTick();
 
