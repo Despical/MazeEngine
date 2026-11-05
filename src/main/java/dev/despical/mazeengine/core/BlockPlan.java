@@ -39,14 +39,20 @@ import dev.despical.mazeengine.config.Preset;
  */
 public final class BlockPlan {
 
+    private static final long MAX_CACHED_COLUMNS = 1L << 26;
+
     private final MazeLayout layout;
     private final Preset preset;
     private final long seed;
+    private final int spanX, spanZ;
+    private byte[] columns;
 
     public BlockPlan(MazeLayout layout, Preset preset, long seed) {
         this.layout = layout;
         this.preset = preset;
         this.seed = seed;
+        this.spanX = Bounds.span(layout.width(), preset.pathWidth(), preset.wallThickness());
+        this.spanZ = Bounds.span(layout.depth(), preset.pathWidth(), preset.wallThickness());
     }
 
     public MazeLayout layout() {
@@ -92,6 +98,28 @@ public final class BlockPlan {
     }
 
     public boolean passage(int x, int z) {
+        if (x < 0 || z < 0 || x >= spanX || z >= spanZ || (long) spanX * spanZ > MAX_CACHED_COLUMNS) {
+            return computePassage(x, z);
+        }
+
+        byte[] cache = columns;
+
+        if (cache == null) {
+            columns = cache = new byte[spanX * spanZ];
+        }
+
+        int slot = x * spanZ + z;
+        byte known = cache[slot];
+
+        if (known == 0) {
+            known = (byte) (computePassage(x, z) ? 1 : 2);
+            cache[slot] = known;
+        }
+
+        return known == 1;
+    }
+
+    private boolean computePassage(int x, int z) {
         if (portal(x, z, layout.entrance()) || portal(x, z, layout.exit())) {
             return true;
         }
