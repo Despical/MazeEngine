@@ -206,17 +206,19 @@ final class MazeJob {
             service.ensureEmptyOfPlayers(world, bounds);
         }
 
-        Block block = block(index);
-        Material material = block.getType();
+        int blockX = bounds.x() + bounds.localX(index);
+        int blockY = bounds.y() + bounds.localY(index);
+        int blockZ = bounds.z() + bounds.localZ(index);
+        Material material = world.getType(blockX, blockY, blockZ);
 
         if (service.worldGuard != null) {
-            service.worldGuard.check(sender, block);
+            service.worldGuard.check(sender, world.getBlockAt(blockX, blockY, blockZ));
         }
 
         if (initial && record.preset().placement() == Preset.Placement.SAFE && !material.isAir()
             && (bounds.localY(index) > 0 || !plugin.settings().replaceable().contains(material.name()))) {
             throw new IllegalArgumentException(
-                "SAFE placement found an occupied block at " + block.getX() + "," + block.getY() + "," + block.getZ());
+                "SAFE placement found an occupied block at " + blockX + "," + blockY + "," + blockZ);
         }
 
         if (initial && record.preset().placement() == Preset.Placement.REPLACE && !material.isAir()
@@ -305,21 +307,23 @@ final class MazeJob {
 
     private boolean stepBuild() {
         Bounds bounds = record.bounds();
+        int localX = bounds.localX(index), localY = bounds.localY(index), localZ = bounds.localZ(index);
+        int blockX = bounds.x() + localX, blockY = bounds.y() + localY, blockZ = bounds.z() + localZ;
 
         // CLEAR, SAFE and REPLACE share the same finished plan. Modes differ only in
         // preflight rules.
-        String state = deleting ? "minecraft:air"
-            : plan.block(bounds.localX(index), bounds.localY(index), bounds.localZ(index));
-        Block block = block(index);
+        String state = deleting ? "minecraft:air" : plan.block(localX, localY, localZ);
         BlockData target = data.computeIfAbsent(state, Bukkit::createBlockData);
+        Block block = null;
 
         if (service.worldGuard != null) {
+            block = world.getBlockAt(blockX, blockY, blockZ);
             service.worldGuard.check(sender, block);
         }
 
-        if ((!repairing || !target.getMaterial().isAir()) && !block.getBlockData().equals(target)) {
+        if ((!repairing || !target.getMaterial().isAir()) && !world.getBlockData(blockX, blockY, blockZ).equals(target)) {
             mutated = true;
-            block.setBlockData(target, false);
+            (block != null ? block : world.getBlockAt(blockX, blockY, blockZ)).setBlockData(target, false);
         }
 
         if (++index == bounds.volume()) {
