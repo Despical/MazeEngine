@@ -190,6 +190,9 @@ public final class MazeCommands extends BaseCommand {
             plugin.messages().send(sender, "maze-exists", "name", exception.mazeName());
         } catch (MazeService.UnknownMazeException exception) {
             plugin.messages().send(sender, "unknown-maze", "name", exception.mazeName());
+        } catch (NumberFormatException exception) {
+            String input = Objects.toString(exception.getMessage(), "").replaceFirst("^For input string: \"(.*)\".*$", "$1");
+            plugin.messages().send(sender, "error", "reason", "'%s' is not a valid number.".formatted(input));
         } catch (Exception exception) {
             plugin.messages().send(sender, "error", "reason",
                 Objects.toString(exception.getMessage(), exception.getClass().getSimpleName()));
