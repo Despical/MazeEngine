@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/mazeengine-icon.svg" width="128" height="128" alt="Maze Engine icon">
+  <img src="https://docs.despical.dev/images/mazeengine/icon.png" width="128" height="128" alt="Maze Engine icon">
 </p>
 
 <h1 align="center">Maze Engine</h1>
@@ -18,7 +18,7 @@
 
 <p align="center">Read the <a href="https://docs.despical.dev/maze-engine/">documentation</a> for setup instructions, configuration details and examples.</p>
 
-![Maze Engine with 30 themed presets, arrow guides and seeded generation](assets/mazeengine-cover.png)
+![Maze Engine with 30 themed presets, arrow guides and seeded generation](https://docs.despical.dev/images/mazeengine/cover.png)
 
 ---
 

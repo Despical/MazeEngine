@@ -4,3 +4,6 @@ build/
 !.idea/icon.svg
 *.iml
 .runtime/
+
+# Marketplace art and designs live in the docs repository
+/assets/
